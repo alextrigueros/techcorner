@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+<html lang="ca">
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <title>Login - TechCorner</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
