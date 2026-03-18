@@ -22,6 +22,8 @@
 
         <button type="submit" name="btn_login">Entrar</button>
     </form>
+    <br>
+    <a href="index.php?accio=registre">No tinc un compte (Registra't)</a>
 </body>
 
 </html>
