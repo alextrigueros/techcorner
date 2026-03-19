@@ -22,6 +22,30 @@ switch ($accio) {
         include "controllers/botiga_controller.php";
         break;
 
+    case 'afegir_carret':
+        //Comprovem si l'usuari està loguejat
+        if (!isset($_SESSION['user_id'])) {
+            //Si no està loguejat l'enviem al login
+            header("Location: index.php?accio=login");
+            exit;
+        }
+
+        //Si està loguejat, processem el carret
+        require_once "models/carret.php";
+        $producte_id = $_GET['id'];
+        $usuari_id = $_SESSION['user_id'];
+
+        $id_carret = obtenirIdCarret($conn, $usuari_id);
+        afegirProducteAlCarret($conn, $id_carret, $producte_id);
+
+        //Un cop afegit, tornem a la botiga
+        header("Location: index.php?accio=botiga");
+        break;
+
+    case 'carret':
+        include "controllers/carret_controller.php";
+        break;
+
     case 'home':
         //Mirem si l'usuari s'ha loguejat per utilitzar el seu nom
         if (isset($_SESSION['user_nom'])) {

@@ -42,3 +42,39 @@
     color: #2c3e50;
     font-size: 1.2em;
 }
+
+.botons-targeta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.boto-veure, .boto-carret {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.boto-veure {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.boto-veure:hover {
+    background-color: #e2e6ea;
+}
+
+.boto-carret {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.boto-carret:hover {
+    background-color: #218838;
+}

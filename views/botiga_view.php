@@ -9,6 +9,7 @@
 
 <body>
     <h1>Catàleg TechCorner</h1>
+    <a href='index.php?accio=carret&id=$id' class='boto-carret'>Anar al carret</a>
 
     <div class="contenidor">
         <div class="filtres">
@@ -98,23 +99,26 @@
 
         <div class="productes">
             <?php
-            // Si el compte de productes és més gran que 0, entrem aquí a mostrar els productes
             if (count($productes) > 0) {
-
                 foreach ($productes as $p) {
+                    $id = $p['producte_id'];
                     $imatge = $p['imatge_url'];
                     $nom = $p['nom'];
                     $preu = $p['preu'];
 
                     echo "<div class='targeta'>
-            <img src='content/products/$imatge' alt='$nom'>
-            <h4>$nom</h4>
-            <p class='preu'>$preu €</p>
-            <button>Afegir al carret</button>
-        </div>";
+                <img src='content/products/$imatge' alt='$nom'>
+                <h4>$nom</h4>
+                <p class='preu'>$preu €</p>
+                
+                <div class='botons-targeta'>
+                    <a href='index.php?accio=detall&id=$id' class='boto-veure'>Veure producte</a>
+                    
+                    <a href='index.php?accio=afegir_carret&id=$id' class='boto-carret'>Afegir al carret</a>
+                </div>
+            </div>";
                 }
             } else {
-                // Si no hi ha productes a mostrar, mostrem un missatge
                 echo "<p>No s'han trobat productes amb aquests filtres.</p>";
             }
             ?>
