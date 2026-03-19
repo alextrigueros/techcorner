@@ -43,6 +43,8 @@ switch ($accio) {
         break;
 
     case 'carret':
+    case 'afegir_carret':
+    case 'eliminar_item':
         include "controllers/carret_controller.php";
         break;
 
