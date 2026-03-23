@@ -48,6 +48,10 @@ switch ($accio) {
         include "controllers/carret_controller.php";
         break;
 
+    case 'finalitzar_comanda':
+        include "controllers/comanda_controller.php";
+        break;
+        
     case 'home':
         //Mirem si l'usuari s'ha loguejat per utilitzar el seu nom
         if (isset($_SESSION['user_nom'])) {

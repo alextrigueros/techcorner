@@ -1,7 +1,7 @@
 <?php
 require_once "models/carret.php";
 
-// Comprovem que l'usuari està loguejat, sinó el redirigim al login
+//Comprovem que l'usuari està loguejat, sinó el redirigim al login
 if (!isset($_SESSION['user_id'])) {
     header("Location: index.php?accio=login");
     exit;
