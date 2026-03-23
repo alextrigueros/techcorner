@@ -8,8 +8,8 @@
 </head>
 
 <body>
+    <?php include "views/header_view.php"; ?>
     <h1>Catàleg TechCorner</h1>
-    <a href='index.php?accio=carret&id=$id' class='boto-carret'>Anar al carret</a>
 
     <div class="contenidor">
         <div class="filtres">

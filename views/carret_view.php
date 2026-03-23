@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <?php include "views/header_view.php"; ?>
     <h1>El teu carret</h1>
 
     <div class="contenidor-carret">

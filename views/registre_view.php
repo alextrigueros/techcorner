@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <?php include "views/header_view.php"; ?>
     <h2>Crear un compte nou</h2>
 
     <!-- Si hi ha un error, el mostrem -->

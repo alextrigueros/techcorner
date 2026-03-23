@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <?php include "views/header_view.php"; ?>
     <div class="contenidor-carret">
         <?php
         //Si la comanda s'ha processat correctament, mostrem el missatge d'èxit, sino mostrem el missatge d'error

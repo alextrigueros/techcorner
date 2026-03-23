@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <?php include "views/header_view.php"; ?>
     <div class="contenidor-fitxa">
         <a href="index.php?accio=botiga">Tornar a la botiga</a>
 

@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <?php include "views/header_view.php"; ?>
     <h2>Inici de sessió</h2>
     <!-- Si hi ha un error, el mostrem -->
     <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
