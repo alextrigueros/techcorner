@@ -18,7 +18,7 @@ function obtenirIdCarret($conn, $usuari_id)
     }
 }
 
-// Funció per afegir un producte al detall del carret
+//Funció per afegir un producte al detall del carret
 function afegirProducteAlCarret($conn, $carret_id, $producte_id)
 {
     //Mirem si el producte ja hi és al carret

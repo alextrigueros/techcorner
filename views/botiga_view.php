@@ -105,6 +105,7 @@
                     $imatge = $p['imatge_url'];
                     $nom = $p['nom'];
                     $preu = $p['preu'];
+                    $stock = $p['stock'];
 
                     echo "<div class='targeta'>
                 <img src='content/products/$imatge' alt='$nom'>
@@ -112,10 +113,16 @@
                 <p class='preu'>$preu €</p>
                 
                 <div class='botons-targeta'>
-                    <a href='index.php?accio=detall&id=$id' class='boto-veure'>Veure producte</a>
-                    
-                    <a href='index.php?accio=afegir_carret&id=$id' class='boto-carret'>Afegir al carret</a>
-                </div>
+                    <a href='index.php?accio=fitxa&id=$id' class='boto-veure'>Veure producte</a>";
+
+                    if ($stock > 0) {
+                        //Si hi ha stock, mostrem el botó normal
+                        echo "<a href='index.php?accio=afegir_carret&id=$id' class='boto-carret'>Afegir al carret</a>";
+                    } else {
+                        //Si no hi ha stock, mostrem un botó desactivat
+                        echo "<p>Esgotat</p>";
+                    }
+                    echo "</div>
             </div>";
                 }
             } else {

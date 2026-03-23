@@ -12,7 +12,7 @@
 
     <div class="contenidor-carret">
         <?php
-        // Si no hi ha productes mostrem el missatge de carret buit
+        //Si no hi ha productes mostrem el missatge de carret buit
         if (count($productes_carret) == 0) {
             echo "<p>El teu carret està buit. <a href='index.php?accio=botiga'>Vols anar a la botiga?</a></p>";
         } else {

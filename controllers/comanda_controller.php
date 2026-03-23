@@ -1,7 +1,7 @@
 <?php
 require_once "models/comanda.php";
 
-//Comprovem que l'usuari està loguejat, sinó el redirigim al login
+//Comprovem que l'usuari està loguejat sino el redirigim al login
 if (!isset($_SESSION['user_id'])) {
     header("Location: index.php?accio=login");
     exit;
@@ -9,9 +9,19 @@ if (!isset($_SESSION['user_id'])) {
 
 $usuari_id = $_SESSION['user_id'];
 
-//Fem servir la funció de finalitzar compra, que crearà la comanda a la base de dades i buidarà el carret
-$compra_exitosa = finalitzarCompra($conn, $usuari_id);
+$resultat = finalitzarCompra($conn, $usuari_id);
 
-//Carreguem la vista
+if ($resultat === true) {
+    $missatge = "Gràcies per la teva compra! La comanda s'ha realitzat correctament.";
+    $exit = true;
+} elseif ($resultat === false) {
+    $missatge = "El teu carret està buit o no s'ha pogut processar.";
+    $exit = false;
+} else {
+    //Si no és booleà, vol dir que hem rebut el missatge de "Error: No hi ha prou estoc..."
+    $missatge = $resultat;
+    $exit = false;
+}
+
+//Carreguem la vista. 
 include "views/comanda_view.php";
-?>

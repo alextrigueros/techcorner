@@ -10,14 +10,13 @@
 <body>
     <div class="contenidor-carret">
         <?php
-        //Si la compra ha sigut exitosa, mostrem un missatge de confirmació, sinó un missatge d'error
-        if ($compra_exitosa) {
+        //Si la comanda s'ha processat correctament, mostrem el missatge d'èxit, sino mostrem el missatge d'error
+        if ($exit) {
             echo "<h1>Compra finalitzada amb èxit!</h1>";
-            echo "<p>Gràcies per la teva comanda a TechCorner. Hem buidat el teu carret de la compra.</p>";
         } else {
-            echo "<h1>Ups...</h1>";
-            echo "<p>Sembla que no hi havia res al teu carret per poder finalitzar la comanda.</p>";
+            echo "<h1>Ups... hi ha hagut un problema</h1>";
         }
+        echo "<p>$missatge</p>";
 
         echo "<br>";
         echo "<a href='index.php?accio=botiga' class='boto-comprar'>Tornar a la botiga</a>";

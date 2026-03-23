@@ -2,7 +2,7 @@
 session_start();
 require_once "config/db.php";
 
-// Mirem que vol fer l'usuari, per defecte anem a la home
+//Mirem que vol fer l'usuari, per defecte anem a la home
 if (isset($_GET['accio'])) {
     $accio = $_GET['accio'];
 } else {
@@ -51,7 +51,11 @@ switch ($accio) {
     case 'finalitzar_comanda':
         include "controllers/comanda_controller.php";
         break;
-        
+
+    case 'fitxa':
+        include "controllers/fitxa_controller.php";
+        break;
+
     case 'home':
         //Mirem si l'usuari s'ha loguejat per utilitzar el seu nom
         if (isset($_SESSION['user_nom'])) {

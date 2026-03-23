@@ -1,7 +1,7 @@
 <?php
 require_once "models/usuari.php";
 
-// Si s'ha premut el botó de "Registrar-se"
+//Si s'ha premut el botó de "Registrar-se"
 if (isset($_POST['btn_registre'])) {
 
     // Guardem el que l'usuari ha escrit en variables

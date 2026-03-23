@@ -1,7 +1,7 @@
 <?php
 require_once "models/producte.php";
 
-// Recollim els valors dels filtres, si no hi han posem valors buits
+//Recollim els valors dels filtres, si no hi han posem valors buits
 if (isset($_GET["cerca"])) {
     $cerca = $_GET["cerca"];
 } else {
@@ -31,5 +31,5 @@ $productes = obtenirProductesFiltrats($conn, $cerca, $cats_triades, $marques_tri
 $llista_categories = obtenirCategories($conn);
 $llista_marques = obtenirMarquesUniques($conn);
 
-// Carreguem la vista
+//Carreguem la vista
 include "views/botiga_view.php";

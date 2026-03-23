@@ -49,3 +49,10 @@ function obtenirMarquesUniques($conn)
     $res = mysqli_query($conn, "SELECT DISTINCT marca FROM PRODUCTES");
     return mysqli_fetch_all($res, MYSQLI_ASSOC);
 }
+
+//Funció per obtenir un producte concret segons el seu ID (per mostrar la fitxa de producte)
+function obtenirProductePerId($conn, $id) {
+    $sql = "SELECT * FROM PRODUCTES WHERE producte_id = $id";
+    $resultat = mysqli_query($conn, $sql);
+    return mysqli_fetch_assoc($resultat);
+}
