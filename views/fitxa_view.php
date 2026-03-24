@@ -27,16 +27,18 @@
                 <br>
                 <?php
                 if ($p['stock'] > 0) {
-                        //Si hi ha stock, mostrem el botó normal
-                        echo "<a href='index.php?accio=afegir_carret&id=" . $p['producte_id'] . "' class='boto-carret'>Afegir al carret</a>";
-                    } else {
-                        //Si no hi ha stock, mostrem un botó desactivat
-                        echo "<p>Esgotat</p>";
-                    }
+                    //Si hi ha stock, mostrem el botó normal
+                    echo "<a href='index.php?accio=afegir_carret&id=" . $p['producte_id'] . "' class='boto-carret'>Afegir al carret</a>";
+                } else {
+                    //Si no hi ha stock, mostrem un botó desactivat
+                    echo "<p>Esgotat</p>";
+                }
                 ?>
             </div>
         </div>
     </div>
+    <?php include "views/footer_view.php"; ?>
+
 </body>
 
 </html>

@@ -68,6 +68,8 @@
         <br>
         <a href="index.php?accio=botiga">Seguir comprant</a>
     </div>
+    <?php include "views/footer_view.php"; ?>
+
 </body>
 
 </html>

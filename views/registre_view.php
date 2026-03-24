@@ -38,6 +38,8 @@
 
     <br>
     <a href="index.php?accio=login">Ja tinc un compte (Inicia sessió)</a>
+        <?php include "views/footer_view.php"; ?>
+
 </body>
 
 </html>

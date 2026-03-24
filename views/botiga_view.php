@@ -131,6 +131,7 @@
             ?>
         </div>
     </div>
+    <?php include "views/footer_view.php"; ?>
 </body>
 
 </html>

@@ -23,6 +23,8 @@
         echo "<a href='index.php?accio=botiga' class='boto-comprar'>Tornar a la botiga</a>";
         ?>
     </div>
+    <?php include "views/footer_view.php"; ?>
+
 </body>
 
 </html>

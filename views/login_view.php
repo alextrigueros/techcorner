@@ -25,6 +25,8 @@
     </form>
     <br>
     <a href="index.php?accio=registre">No tinc un compte (Registra't)</a>
+    <?php include "views/footer_view.php"; ?>
+
 </body>
 
 </html>
