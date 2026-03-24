@@ -56,6 +56,16 @@ switch ($accio) {
         include "controllers/fitxa_controller.php";
         break;
 
+    case 'perfil':
+        include "controllers/perfil_controller.php";
+        break;
+
+    case 'logout':
+        session_destroy();
+        header("Location: index.php?accio=home");
+        exit;
+        break;
+
     case 'home':
         //Mirem si l'usuari s'ha loguejat per utilitzar el seu nom
         if (isset($_SESSION['user_nom'])) {

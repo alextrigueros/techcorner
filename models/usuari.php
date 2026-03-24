@@ -40,3 +40,21 @@ function registrarUsuari($conn, $nom, $cognoms, $email, $password)
         return false;
     }
 }
+
+//Funció per obtenir les dades de l'usuari a partir del seu ID
+function obtenirDadesUsuari($conn, $usuari_id) {
+    $sql = "SELECT nom, cognoms, email FROM USUARIS WHERE usuari_id = $usuari_id";
+    $resultat = mysqli_query($conn, $sql);
+    return mysqli_fetch_assoc($resultat);
+}
+
+//Funció per obtenir les comandes d'un usuari a partir del seu ID
+function obtenirComandesUsuari($conn, $usuari_id) {
+    //Les ordenem per data de més nova a més antiga (DESC)
+    $sql = "SELECT comanda_id, data_comanda, total, estat 
+            FROM COMANDES 
+            WHERE usuari_id = $usuari_id 
+            ORDER BY data_comanda DESC";
+    $resultat = mysqli_query($conn, $sql);
+    return mysqli_fetch_all($resultat, MYSQLI_ASSOC);
+}
