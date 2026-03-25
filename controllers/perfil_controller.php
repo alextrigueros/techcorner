@@ -37,6 +37,17 @@ if (isset($_POST['btn_canviar_pass'])) {
     }
 }
 
+//Si s'ha premut el botó de borrar compte
+if (isset($_POST['btn_borrar_compte'])) {
+    $id = $_SESSION['user_id'];
+
+    if (eliminarUsuari($conn, $id)) {
+        session_destroy();
+        header("Location: index.php");
+        exit;
+    }
+}
+
 //Demanem les dades al model
 $usuari = obtenirDadesUsuari($conn, $usuari_id);
 $comandes = obtenirComandesUsuari($conn, $usuari_id);

@@ -53,6 +53,12 @@
                 <button type="submit" name="btn_canviar_pass">Actualitzar contrasenya</button>
             </form>
         </div>
+        <br>
+        <form method="POST" onsubmit="return confirm('Estas segur que vols esborrar el teu compte? Aquesta acció no es pot desfer')">
+            <button type="submit" name="btn_borrar_compte">
+                Borrar el meu compte
+            </button>
+        </form>
 
         <div class="historial-comandes">
             <h3>El meu historial de comandes</h3>
