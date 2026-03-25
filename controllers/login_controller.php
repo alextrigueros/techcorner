@@ -15,6 +15,7 @@ if (isset($_POST['btn_login'])) {
     if ($usuari_valid) {
         $_SESSION['user_id'] = $usuari_valid['usuari_id'];
         $_SESSION['user_nom'] = $usuari_valid['nom'];
+        $_SESSION['user_rol'] = $usuari_valid['rol'];
         header("Location: index.php");
         exit;
     }

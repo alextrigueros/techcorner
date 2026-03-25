@@ -66,6 +66,10 @@ switch ($accio) {
         exit;
         break;
 
+    case 'admin':
+        include "controllers/adminpanel_controller.php";
+        break;
+
     case 'home':
         //Mirem si l'usuari s'ha loguejat per utilitzar el seu nom
         if (isset($_SESSION['user_nom'])) {

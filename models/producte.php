@@ -56,3 +56,10 @@ function obtenirProductePerId($conn, $id) {
     $resultat = mysqli_query($conn, $sql);
     return mysqli_fetch_assoc($resultat);
 }
+
+//Funció per augmentar l'stock d'un producte
+function modificarStock($conn, $id, $quantitat) {
+    // Sumem la quantitat a l'stock actual
+    $sql = "UPDATE PRODUCTES SET stock = stock + $quantitat WHERE producte_id = $id";
+    return mysqli_query($conn, $sql);
+}

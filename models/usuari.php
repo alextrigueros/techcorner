@@ -73,3 +73,22 @@ function actualitzarContrasenya($conn, $usuari_id, $nova_password_xifrada) {
     $sql = "UPDATE USUARIS SET contrasenya = '$nova_password_xifrada' WHERE usuari_id = $usuari_id";
     return mysqli_query($conn, $sql);
 }
+
+//Funcio per obtenir tots els usuaris
+function obtenirTotsUsuaris($conn) {
+    $sql = "SELECT usuari_id, nom, cognoms, email, rol FROM USUARIS";
+    $res = mysqli_query($conn, $sql);
+    return mysqli_fetch_all($res, MYSQLI_ASSOC);
+}
+
+//Funcio per eliminar un usuari
+function eliminarUsuari($conn, $id) {
+    $sql = "DELETE FROM USUARIS WHERE usuari_id = $id";
+    return mysqli_query($conn, $sql);
+}
+
+//Funcio per actualitzar el rol d'un usuari
+function actualitzarRolUsuari($conn, $id, $nou_rol) {
+    $sql = "UPDATE USUARIS SET rol = '$nou_rol' WHERE usuari_id = $id";
+    return mysqli_query($conn, $sql);
+}

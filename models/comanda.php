@@ -60,3 +60,24 @@ function finalitzarCompra($conn, $usuari_id)
 
     return true;
 }
+
+//Funció per obtenir les totes comandes actives (no lliurades)
+function obtenirTotesLesComandesActives($conn)
+{
+    //Fem un JOIN per saber de quin usuari és cada comanda
+    $sql = "SELECT c.*, u.nom, u.cognoms 
+            FROM COMANDES c 
+            JOIN USUARIS u ON c.usuari_id = u.usuari_id 
+            WHERE c.estat != 'lliurat' 
+            ORDER BY c.data_comanda DESC";
+
+    $res = mysqli_query($conn, $sql);
+    return mysqli_fetch_all($res, MYSQLI_ASSOC);
+}
+
+//Funció per canviar l'estat d'una comanda
+function actualitzarEstatComanda($conn, $id, $nou_estat)
+{
+    $sql = "UPDATE COMANDES SET estat = '$nou_estat' WHERE comanda_id = $id";
+    return mysqli_query($conn, $sql);
+}
