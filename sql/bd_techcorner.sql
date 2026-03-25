@@ -20,6 +20,9 @@ CREATE TABLE IF NOT EXISTS CATEGORIES (
     descripcio TEXT
 );
 
+INSERT IGNORE INTO CATEGORIES (categoria_id, nom, descripcio) 
+VALUES (1, 'Sense categoria', 'Categoria per defecte per a productes sense categoria assignada');
+
 CREATE TABLE IF NOT EXISTS PRODUCTES (
     producte_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100),
@@ -65,7 +68,7 @@ CREATE TABLE IF NOT EXISTS DETALL_COMANDES (
 ALTER TABLE PRODUCTES
 ADD CONSTRAINT fk_producte_categoria
 FOREIGN KEY (categoria_id) REFERENCES CATEGORIES(categoria_id)
-ON DELETE CASCADE ON UPDATE CASCADE;
+ON DELETE RESTRICT ON UPDATE CASCADE;
 
 ALTER TABLE CARRETS
 ADD CONSTRAINT fk_carret_usuari
@@ -111,4 +114,22 @@ BEGIN
 END;
 //
 
+CREATE TRIGGER gestio_borrat_categories
+BEFORE DELETE ON CATEGORIES
+FOR EACH ROW
+BEGIN
+    /*Evitar esborrar la categoria amb ID 1*/
+    IF OLD.categoria_id = 1 THEN
+        SIGNAL SQLSTATE '45000' 
+        SET MESSAGE_TEXT = 'Error: No es pot eliminar la categoria per defecte (ID 1)';
+    END IF;
+
+    /*Assignem la categoria per defecte a els productes que tenen la categoria a eliminar*/
+    UPDATE PRODUCTES 
+    SET categoria_id = 1 
+    WHERE categoria_id = OLD.categoria_id;
+END;
+//
+
 DELIMITER ;
+
