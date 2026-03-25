@@ -113,25 +113,107 @@
                     echo "</tbody></table>";
                     ?>
 
-
-                    <h2>Gestió d'Stock</h2>
+                    <h2>Categories Existents</h2>
                     <table>
                         <thead>
                             <tr>
-                                <th>Producte</th>
-                                <th>Stock Actual</th>
-                                <th>Afegir</th>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Acció</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            //Recorrem els productes i mostrem una fila per cada un amb un formulari per afegir stock
-                            foreach ($productes as $p) {
-                                $id_p = $p['producte_id'];
-                                $nom_p = $p['nom'];
-                                $stock = $p['stock'];
+                            foreach ($categories_disponibles as $cat) {
+                                $id_c = $cat['categoria_id'];
+                                $nom_c = $cat['nom'];
 
                                 echo "<tr>
+                                <td>$id_c</td>
+                                <td>$nom_c</td>
+                                <td>";
+                                //Evitem mostrar el botó de borrar per la categoria "Sense Categoria"
+                                if ($id_c != 1) {
+                                    echo "<form method='POST'>
+                                            <input type='hidden' name='id_categoria' value='$id_c'>
+                                            <button type='submit' name='btn_eliminar_categoria'>Borrar Categoria</button>
+                                        </form>";
+                                } else {
+                                    echo "<span>Protegida</span>";
+                                }
+
+                                echo "</td> </tr>";
+                            }
+                            echo "</tbody></table>";
+                            ?>
+
+                            <h2>Crear Nova Categoria</h2>
+                            <form method='POST'>
+                                <label>Nom de la Categoria:</label><br>
+                                <input type='text' name='nom_cat' required><br><br>
+                                <label>Descripció:</label><br>
+                                <textarea name='desc_cat' required></textarea><br><br>
+                                <button type='submit' name='btn_afegir_categoria'>Afegir Categoria</button>
+                            </form>
+
+                            <h2>Afegir Nou Producte</h2>
+                            <!-- Posem enctype='multipart/form-data' per a poder enviar arxius (imatges)-->
+                            <form method='POST' enctype='multipart/form-data'>
+                                <label>Nom del producte:</label><br>
+                                <input type='text' name='nom' required><br><br>
+
+                                <label>Marca:</label><br>
+                                <input type='text' name='marca' required><br><br>
+
+                                <label>Descripció:</label><br>
+                                <textarea name='descripcio' required></textarea><br><br>
+
+                                <label>Preu:</label><br>
+                                <input type='number' step='0.01' name='preu' required><br><br>
+
+                                <label>Stock inicial:</label><br>
+                                <input type='number' name='stock' required><br><br>
+
+                                <label>Categoria:</label><br>
+                                <select name='categoria' required>";
+                                    <?php
+                                    foreach ($categories_disponibles as $cat) {
+                                        $c_id = $cat['categoria_id'];
+                                        $c_nom = $cat['nom'];
+                                        echo "<option value='$c_id'>$c_nom</option>";
+                                    }
+
+                                    echo ' </select><br><br>';
+                                    ?>
+                                    <label>Imatge Principal:</label><br>
+                                    <!--Posem accept='image/*' per a només permetre arxius de tipus imatge-->
+                                    <input type='file' name='imatge_principal' accept='image/*' required><br><br>
+
+                                    <label>Imatges Secundàries:</label><br>
+                                    <!--Passem les imatges com array fent us de l'atribut name='imatges_secundaries[]' i multiple-->
+                                    <input type='file' name='imatges_secundaries[]' accept='image/*' multiple><br><br>
+
+                                    <button type='submit' name='btn_afegir_producte'>Afegir Producte</button>
+                            </form>
+                            <h2>Gestió de productes</h2>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Producte</th>
+                                        <th>Stock Actual</th>
+                                        <th>Accions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    //Recorrem els productes i mostrem una fila per cada un amb un formulari per afegir stock
+                                    foreach ($productes as $p) {
+                                        $id_p = $p['producte_id'];
+                                        $nom_p = $p['nom'];
+                                        $stock = $p['stock'];
+                                        $cat_actual = $p['categoria_id'];
+
+                                        echo "<tr>
                                         <td>$nom_p</td>
                                         <td>$stock</td>
                                         <td>
@@ -140,16 +222,31 @@
                                                 <!-- Enviem l'id del producte i la quantitat a afegir per actualitzar l'stock -->
                                                 
                                                 <input type='hidden' name='id_producte' value='$id_p'>
-                                                <input type='number' name='quantitat' value='1' style='width:50px;'>
-                                                <button type='submit' name='btn_stock'>Afegir Stock</button>
+                                                <select name='nova_categoria'>";
+
+                                        foreach ($categories_disponibles as $cat) {
+                                            $c_id = $cat['categoria_id'];
+                                            $c_nom = $cat['nom'];
+                                            if ($c_id == $cat_actual) {
+                                                $selected = "selected";
+                                            } else {
+                                                $selected = "";
+                                            }
+                                            echo "<option value='$c_id' $selected>$c_nom</option>";
+                                        }
+                                        echo "</select>
+                                            <button type='submit' name='btn_canviar_categoria'>Moure</button>
+                                            <input type='number' name='quantitat' value='1' style='width:50px;'>
+                                            <button type='submit' name='btn_stock'>Afegir Stock</button>
+                                            <button type='submit' name='btn_eliminar_producte'>Borrar Producte</button>
                                             </form>
                                         </td>
                                     </tr>";
-                            }
-                            echo "</tbody></table>";
+                                    }
+                                    echo "</tbody></table>";
+                                    ?>
+                                    <?php include "views/footer_view.php"; ?>
 
-                            include "views/footer_view.php";
-                            ?>
 </body>
 
 </html>
