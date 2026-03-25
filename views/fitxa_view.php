@@ -22,6 +22,7 @@
                 <p>Marca: <?php echo $p['marca']; ?></p>
                 <p class="descripcio">Descripció: <?php echo $p['descripcio']; ?></p>
                 <h2 class="preu"><?php echo $p['preu']; ?> €</h2>
+                <p>Preu amb IVA</p>
                 <p>Stock disponible: <?php echo $p['stock']; ?> unitats</p>
 
                 <br>

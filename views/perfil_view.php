@@ -28,6 +28,32 @@
             <a href="index.php?accio=logout">Tancar Sessió</a>
         </div>
 
+        <div class="seccio-perfil">
+            <h3>Canviar contrasenya</h3>
+
+            <?php
+            if (isset($error_password)) {
+                echo "<p>$error_password</p>";
+            }
+            if (isset($msg_password)) {
+                echo "<p>$msg_password</p>";
+            }
+            ?>
+
+            <form action="index.php?accio=perfil" method="POST">
+                <label>Contrasenya actual:</label><br>
+                <input type="password" name="pass_actual" required><br><br>
+
+                <label>Nova contrasenya:</label><br>
+                <input type="password" name="nova_pass" required><br><br>
+
+                <label>Repeteix la nova contrasenya:</label><br>
+                <input type="password" name="nova_pass_confirm" required><br><br>
+
+                <button type="submit" name="btn_canviar_pass">Actualitzar contrasenya</button>
+            </form>
+        </div>
+
         <div class="historial-comandes">
             <h3>El meu historial de comandes</h3>
 

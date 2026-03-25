@@ -33,12 +33,16 @@
         <label>Contrasenya:</label><br>
         <input type="password" name="password" required><br><br>
 
+        <label>Repeteix la contrasenya:</label><br>
+        <input type="password" name="password_confirm" required><br><br>
+
+
         <button type="submit" name="btn_registre">Registrar-se</button>
     </form>
 
     <br>
     <a href="index.php?accio=login">Ja tinc un compte (Inicia sessió)</a>
-        <?php include "views/footer_view.php"; ?>
+    <?php include "views/footer_view.php"; ?>
 
 </body>
 
