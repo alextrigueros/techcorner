@@ -17,7 +17,7 @@
         <h3>Documents Legals</h3>
         <ul>
             <li><a href="index.php?accio=termes">Termes i condicions</a></li>
-            <li><a href="index.php?accio=privacitat">Polítiques de privacitat</a></li>
+            <li><a href="index.php?accio=politiques">Polítiques de privacitat</a></li>
         </ul>
     </div>
 

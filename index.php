@@ -44,6 +44,14 @@ switch ($accio) {
         include "controllers/logout_controller.php";
         break;
 
+    case 'politiques':
+        include "views/politiques_view.php";
+        break;
+
+    case 'termes':
+        include "views/termes_view.php";
+        break;
+
     case 'admin':
         include "controllers/adminpanel_controller.php";
         break;
