@@ -22,26 +22,6 @@ switch ($accio) {
         include "controllers/botiga_controller.php";
         break;
 
-    case 'afegir_carret':
-        //Comprovem si l'usuari està loguejat
-        if (!isset($_SESSION['user_id'])) {
-            //Si no està loguejat l'enviem al login
-            header("Location: index.php?accio=login");
-            exit;
-        }
-
-        //Si està loguejat, processem el carret
-        require_once "models/carret.php";
-        $producte_id = $_GET['id'];
-        $usuari_id = $_SESSION['user_id'];
-
-        $id_carret = obtenirIdCarret($conn, $usuari_id);
-        afegirProducteAlCarret($conn, $id_carret, $producte_id);
-
-        //Un cop afegit, tornem a la botiga
-        header("Location: index.php?accio=botiga");
-        break;
-
     case 'carret':
     case 'afegir_carret':
     case 'eliminar_item':
@@ -61,9 +41,7 @@ switch ($accio) {
         break;
 
     case 'logout':
-        session_destroy();
-        header("Location: index.php?accio=home");
-        exit;
+        include "controllers/logout_controller.php";
         break;
 
     case 'admin':
@@ -71,25 +49,10 @@ switch ($accio) {
         break;
 
     case 'home':
-        //Mirem si l'usuari s'ha loguejat per utilitzar el seu nom
-        if (isset($_SESSION['user_nom'])) {
-            $nom_a_mostrar = $_SESSION['user_nom'];
-        }
-        //Sino li direm convidat
-        else {
-            $nom_a_mostrar = "Convidat";
-        }
-
-        echo "<h1>Benvingut a TechCorner, $nom_a_mostrar</h1>";
-
-        echo "<a href='index.php?accio=login'>Anar al Login</a>";
-        echo "<br>";
-        echo "<a href='index.php?accio=registre'>Registrar-se</a>";
-        echo "<br>";
-        echo "<a href='index.php?accio=botiga'>Anar a la Botiga</a>";
+        include "controllers/home_controller.php";
         break;
 
     default:
-        echo "Pàgina no trobada";
+        include "views/error_view.php";
         break;
 }

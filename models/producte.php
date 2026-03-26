@@ -102,6 +102,13 @@ function actualitzarCategoriaProducte($conn, $id_producte, $id_categoria)
     return mysqli_query($conn, $sql);
 }
 
+//Funció per obtenir productes aleatoris
+function obtenirProductesRandom($conn, $limit = 4) {
+    $sql = "SELECT * FROM PRODUCTES ORDER BY RAND() LIMIT $limit";
+    $res = mysqli_query($conn, $sql);
+    return mysqli_fetch_all($res, MYSQLI_ASSOC);
+}
+
 //Funció per esborrar un directori i tot el seu contingut (per eliminar les imatges i directori d'un producte quan s'elimina el producte)
 function eliminarDirectoriRecursiu($dir)
 {
