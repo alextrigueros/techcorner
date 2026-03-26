@@ -36,6 +36,29 @@
                 $total = $c['total'];
                 $estat = ucfirst($c['estat']);
 
+                //Segons l'estat de la comanda, marquem l'opció corresponent del select com a seleccionada
+                if ($estat == 'Pendent') {
+                    $selected_pendent = 'selected';
+                    $selected_pagat = '';
+                    $selected_enviat = '';
+                    $selected_lliurat = '';
+                } elseif ($estat == 'Pagat') {
+                    $selected_pendent = '';
+                    $selected_pagat = 'selected';
+                    $selected_enviat = '';
+                    $selected_lliurat = '';
+                } elseif ($estat == 'Enviat') {
+                    $selected_pendent = '';
+                    $selected_pagat = '';
+                    $selected_enviat = 'selected';
+                    $selected_lliurat = '';
+                } elseif ($estat == 'Lliurat') {
+                    $selected_pendent = '';
+                    $selected_pagat = '';
+                    $selected_enviat = '';
+                    $selected_lliurat = 'selected';
+                }
+
                 echo "<tr>
                 <td>#$id</td>
                 <td>$nom_complet</td>
@@ -49,10 +72,10 @@
 
                         <input type='hidden' name='id_comanda' value='$id'>
                         <select name='nou_estat'>
-                            <option value='pendent'>Pendent</option>
-                            <option value='pagat'>Pagat</option>
-                            <option value='enviat'>Enviat</option>
-                            <option value='lliurat'>Lliurat</option>
+                            <option value='pendent' $selected_pendent>Pendent</option>
+                            <option value='pagat' $selected_pagat>Pagat</option>
+                            <option value='enviat' $selected_enviat>Enviat</option>
+                            <option value='lliurat' $selected_lliurat>Lliurat</option>
                         </select>
                         <button type='submit' name='btn_estat'>Actualitzar</button>
                     </form>
