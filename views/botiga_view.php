@@ -9,9 +9,9 @@
 
 <body>
     <?php include "views/header_view.php"; ?>
-    <h1>Catàleg TechCorner</h1>
+    <h1 class="titol-pagina">Catàleg TechCorner</h1>
 
-    <div class="contenidor">
+    <div class="contenidor layout-botiga">
         <div class="filtres">
             <form action="index.php" method="GET">
                 <input type="hidden" name="accio" value="botiga">

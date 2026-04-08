@@ -322,3 +322,166 @@ a {
     align-items: center;
     gap: var(--espai-petit);
 }
+
+/*BOTIGA*/
+.titol-pagina {
+    text-align: center;
+    color: var(--color-primari);
+    margin-top: var(--espai-mig);
+    margin-bottom: var(--espai-mig);
+}
+
+/*Layout Principal*/
+.layout-botiga {
+    display: flex;
+    gap: var(--espai-gran);
+    align-items: flex-start;
+    margin-bottom: var(--espai-gran);
+}
+
+/*Filtres*/
+.filtres {
+    flex: 0 0 280px;
+    background-color: var(--color-blanc);
+    padding: var(--espai-mig);
+    border-radius: var(--radi-bora);
+    box-shadow: var(--ombra-suau);
+    position: sticky;
+    top: 100px;
+}
+
+.grup-filtre {
+    margin-bottom: var(--espai-mig);
+}
+
+.grup-filtre h3 {
+    color: var(--color-primari);
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: var(--espai-petit);
+    border-bottom: 3px solid var(--color-secundari);
+    padding-bottom: 5px;
+    width: fit-content;
+}
+
+.grup-filtre input[type="text"],
+.grup-filtre select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--color-text-clar);
+    border-radius: var(--radi-bora);
+    box-sizing: border-box;
+}
+
+/*Checkboxes*/
+.grup-filtre input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--color-primari);
+}
+
+.filtres form button {
+    width: 100%;
+    background-color: var(--color-primari);
+    color: var(--color-blanc);
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: var(--radi-bora);
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+
+.filtres form button:hover {
+    background-color: var(--color-primari-fosc);
+}
+
+.filtres form a {
+    display: block;
+    text-align: center;
+    color: var(--color-error);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.filtres form a:hover {
+    text-decoration: underline;
+}
+
+/*Àrea de Productes*/
+.productes {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--espai-gran);
+}
+
+/*Targeta*/
+.targeta {
+    background-color: var(--color-blanc);
+    border-radius: var(--radi-bora);
+    box-shadow: var(--ombra-suau);
+    padding: var(--espai-mig);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.targeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px var(--color-text-clar);
+}
+
+.targeta img {
+    height: 180px;
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: var(--espai-mig);
+}
+
+.targeta h4 {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin: 0 0 var(--espai-petit) 0;
+}
+
+.targeta .preu {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--color-secundari);
+    margin: 0 0 var(--espai-mig) 0;
+}
+
+/*Botons de targeta*/
+.botons-targeta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espai-petit);
+    margin-top: auto;
+}
+
+.boto-veure,
+.boto-carret {
+    padding: 8px;
+    border-radius: var(--radi-bora);
+    font-weight: 500;
+}
+
+.boto-veure {
+    background-color: var(--color-fons);
+    color: var(--color-text);
+    border: 1px solid var(--color-text-clar);
+}
+
+.boto-veure:hover {
+    background-color: #e2e2e2;
+}
+
+.boto-carret {
+    background-color: var(--color-primari);
+    color: var(--color-blanc);
+}
+
+.boto-carret:hover {
+    background-color: var(--color-primari-fosc);
+}
