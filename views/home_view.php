@@ -4,75 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <title>Inici - TechCorner</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
 
     <?php include "views/header_view.php"; ?>
 
-    <section>
-        <h1>Benvingut a TechCorner</h1>
-        <?php
-        // Missatge de benvinguda personalitzat si l'usuari està loguejat
-        if (isset($_SESSION['user_nom'])) {
-            $nom = $_SESSION['user_nom'];
-            echo "<p>Hola, $nom! Què vols comprar avui?</p>";
-        } else {
-            echo "<p>La teva botiga de tecnologia de confiança. Explora el nostre catàleg!</p>";
-        }
-        ?>
-    </section>
-
-    <section>
-        <h2>Productes Destacats</h2>
-        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+    <main class="contenidor principal-home">
+        <section class="seccio-hero">
+            <h1>Benvingut a TechCorner!</h1>
             <?php
-            //Bucle per als productes aleatoris
-            foreach ($productes_destacats as $p) {
-                $id = $p['producte_id'];
-                $nom = $p['nom'];
-                $preu = $p['preu'];
-                $imatge = $p['imatge_url'];
-
-                echo "<div>
-                        <img src='content/products/$imatge' alt='$nom'>
-                        <h3>$nom</h3>
-                        <p>Preu: $preu €</p>
-                        <a href='index.php?accio=fitxa&id=$id'>Veure detall</a>
-                      </div>";
+            if (isset($_SESSION['user_nom'])) {
+                $nom = $_SESSION['user_nom'];
+                echo "<p class='text-destacat'>Hola, <strong>$nom</strong>! Què vols comprar avui?</p>";
+            } else {
+                echo "<p class='text-destacat'>La teva botiga de tecnologia de confiança. Explora el nostre catàleg!</p>";
             }
             ?>
-        </div>
-    </section>
+        </section>
 
-    <section>
-        <h2>Explora per Categoria</h2>
-        <ul>
-            <?php
-            //Llista de categories per navegació ràpida
-            foreach ($categories as $cat) {
-                $id_cat = $cat['categoria_id'];
-                $nom_cat = $cat['nom'];
+        <section class="seccio-productes">
+            <h2>Productes Destacats</h2>
+            <div class="graella-productes">
+                <?php
+                foreach ($productes_destacats as $p) {
+                    $id = $p['producte_id'];
+                    $nom = $p['nom'];
+                    $preu = $p['preu'];
+                    $imatge = $p['imatge_url'];
 
-                echo "<li>
-                        <a href='index.php?accio=botiga&categories[]=$id_cat'>$nom_cat</a>
-                      </li>";
-            }
-            ?>
-        </ul>
-    </section>
+                    echo "<div class='targeta-producte'>
+                            <div class='contenidor-imatge'>
+                            <img src='content/products/$imatge' alt='$nom' class='imatge-producte'>
+                            </div>
+                            <h3 class='titol-producte'>$nom</h3>
+                            <p class='preu-producte'>$preu €</p>
+                            <a href='index.php?accio=fitxa&id=$id' class='boto-primari'>Veure</a>
+                          </div>";
+                }
+                ?>
+            </div>
+        </section>
 
-    <section>
+        <section class="seccio-categories">
+            <h2>Explora per Categoria</h2>
+            <ul class="llista-categories">
+                <?php
+                foreach ($categories as $cat) {
+                    $id_cat = $cat['categoria_id'];
+                    $nom_cat = $cat['nom'];
+                    echo "<li><a href='index.php?accio=botiga&categories[]=$id_cat' class='etiqueta-categoria'>$nom_cat</a></li>";
+                }
+                ?>
+            </ul>
+        </section>
+
         <h2>Per què comprar a TechCorner?</h2>
-        <ul>
-            <li>Enviament en 24h</li>
-            <li>Garantia oficial de 3 anys</li>
-            <li>Atenció al client personalitzada</li>
-        </ul>
-    </section>
+        <section class="seccio-avantatges">
+            <ul class="llista-avantatges">
+                <li>Enviament en 24h</li>
+                <li>Garantia oficial de 3 anys</li>
+                <li>Atenció al client personalitzada</li>
+                <li>Gran varietat de productes</li>
+                <li>Experiència dins del sector</li>
+                <li>Preus competitius</li>
+            </ul>
+        </section>
+
+    </main>
 
     <?php include "views/footer_view.php"; ?>
-
 </body>
 
 </html>

@@ -1,80 +1,324 @@
+/*Configuració Base*/
+:root {
+    /*Colors*/
+    --color-primari: #008bdb;
+    --color-primari-fosc: #0075b9;
+    --color-secundari: #c49e21;
+    --color-fons: #f3f3f3;
+    --color-blanc: #ffffff;
+    --color-negre: #000000;
+    --color-text: #333333;
+    --color-text-clar: #bdbdbd;
+    --color-error: #dc3545;
+    --color-gris: #222222;
+
+    /*Espaiat i Bordes*/
+    --espai-petit: 10px;
+    --espai-mig: 20px;
+    --espai-gran: 40px;
+    --radi-bora: 8px;
+    --ombra-suau: 0 4px 6px #0000001a;
+
+    /*Tipografia*/
+    --font-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*Estils Generals*/
+body {
+    margin: 0;
+    font-family: var(--font-principal);
+    background-color: var(--color-fons);
+    color: var(--color-text);
+    padding-top: 80px;
+}
+
 .contenidor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--espai-mig);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*CAPÇALERA*/
+.capcalera-principal {
+    background-color: var(--color-blanc);
+    box-shadow: var(--ombra-suau);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
     display: flex;
+    align-items: center;
+    z-index: 1000;
 }
 
-/* Columna de l'esquerra (Filtres) */
-.filtres {
-    width: 25%;
-    padding: 20px;
-    border-right: 1px solid #cccccc;
+.capcalera-contingut {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
-.grup-filtre {
-    margin-bottom: 20px;
+/*Logo capçalera*/
+.logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
-/* Columna de la dreta (Productes) */
-.productes {
-    width: 75%;
+.logo a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.imatge-logo {
+    max-height: 40px;
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo a:hover .imatge-logo {
+    transform: scale(1.05);
+}
+
+/*Navegació capçalera*/
+.llista-nav {
+    list-style: none;
+    display: flex;
+    gap: var(--espai-mig);
+}
+
+.llista-nav li a {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--color-text);
+}
+
+.llista-nav li a:hover {
+    color: var(--color-primari);
+}
+
+/*FOOTER*/
+.peu-pagina {
+    background-color: var(--color-gris);
+    color: var(--color-blanc);
+    padding-top: var(--espai-gran);
+    margin-top: var(--espai-gran);
+}
+
+.peu-contingut {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
+    justify-content: space-between;
+    gap: var(--espai-mig);
+    padding-bottom: var(--espai-mig);
 }
 
-/* Targeta de cada producte */
-.targeta {
-    width: 200px;
-    border: 1px solid #dddddd;
-    padding: 15px;
-    text-align: center;
-    border-radius: 8px;
+.peu-seccio h3 {
+    color: var(--color-primari);
+    margin-bottom: var(--espai-mig);
+    font-size: 1.3rem;
 }
 
-.targeta img {
-    max-width: 100%;
-    height: 150px;
-    object-fit: contain;
-}
-
-.preu {
-    font-weight: bold;
-    color: #2c3e50;
-    font-size: 1.2em;
-}
-
-.botons-targeta {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 10px;
-}
-
-.boto-veure, .boto-carret {
+.peu-seccio p,
+.peu-seccio a {
+    color: var(--color-text-clar);
+    font-weight: 600;
     text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 0.9em;
-    font-weight: bold;
+    font-size: 1rem;
+}
+
+.peu-seccio a:hover {
+    color: var(--color-blanc);
+}
+
+/*Xarxes Socials*/
+.xarxes-links a {
+    display: inline-block;
+    justify-content: space-between;
+}
+
+
+/*Copyright*/
+.peu-copyright {
+    background-color: var(--color-negre);
+    text-align: center;
+    padding: var(--espai-mig) 0;
+    margin-top: var(--espai-mig);
+}
+
+.peu-copyright p {
+    margin: 0;
+    color: var(--color-text-clar);
+    font-size: 0.85rem;
+}
+
+/*Legals */
+.llista-neta {
+    list-style: none;
+    padding: 0;
+}
+
+.llista-neta li {
+    margin-bottom: 8px;
+}
+
+/*HOME*/
+.principal-home {
+    padding-top: var(--espai-gran);
+    padding-bottom: var(--espai-gran);
+    min-height: 60vh;
+}
+
+/*Seccions generals*/
+.principal-home h2 {
+    color: var(--color-primari);
+    border-bottom: 3px solid var(--color-secundari);
+    padding-bottom: var(--espai-petit);
+    margin-bottom: var(--espai-mig);
     display: inline-block;
 }
 
-.boto-veure {
-    background-color: #f8f9fa;
-    color: #333;
-    border: 1px solid #ddd;
+/*Hero*/
+.seccio-hero {
+    text-align: center;
+    background-color: var(--color-blanc);
+    padding: var(--espai-gran);
+    border-radius: var(--radi-bora);
+    box-shadow: var(--ombra-suau);
 }
 
-.boto-veure:hover {
-    background-color: #e2e6ea;
+.seccio-hero h1 {
+    font-size: 2.3rem;
+    color: var(--color-primari);
+    margin-top: 0;
 }
 
-.boto-carret {
-    background-color: #28a745;
-    color: white;
-    border: none;
+.text-destacat {
+    font-size: 1.3rem;
+    color: var(--color-text);
 }
 
-.boto-carret:hover {
-    background-color: #218838;
+/*Graella de Productes*/
+.graella-productes {
+    display: grid;
+    /*Crea columnes automàticament*/
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--espai-gran);
+}
+
+/*Targeta de Producte*/
+.targeta-producte {
+    background-color: var(--color-blanc);
+    border-radius: var(--radi-bora);
+    box-shadow: var(--ombra-suau);
+    padding: var(--espai-mig);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.targeta-producte:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px var(--color-text-clar);
+}
+
+.contenidor-imatge {
+    height: 200px;
+    width: 100%;
+    margin-bottom: var(--espai-mig);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.imatge-producte {
+    max-width: 100%;
+    max-height: 100%;
+    /*Evita que la imatge es deformi*/
+    object-fit: contain;
+}
+
+.titol-producte {
+    font-size: 1.1rem;
+    margin: 0 0 var(--espai-petit) 0;
+    color: var(--color-text);
+}
+
+.preu-producte {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--color-secundari);
+    margin: 0 0 var(--espai-mig) 0;
+}
+
+/*Botons*/
+.boto-primari {
+    background-color: var(--color-primari);
+    color: var(--color-blanc);
+    padding: var(--espai-petit) var(--espai-mig);
+    border-radius: var(--radi-bora);
+    font-weight: 600;
+    margin-top: auto;
+}
+
+.boto-primari:hover {
+    background-color: var(--color-primari-fosc);
+}
+
+/*Categories*/
+.llista-categories {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espai-mig);
+}
+
+.etiqueta-categoria {
+    background-color: var(--color-blanc);
+    border: 1px solid var(--color-primari);
+    color: var(--color-primari);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.etiqueta-categoria:hover {
+    background-color: var(--color-primari);
+    color: var(--color-blanc);
+}
+
+/*Avantatges*/
+.seccio-avantatges {
+    background-color: var(--color-blanc);
+    padding: var(--espai-gran);
+    border-radius: var(--radi-bora);
+    box-shadow: var(--ombra-suau);
+}
+
+.llista-avantatges {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espai-mig);
+}
+
+.llista-avantatges li {
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: var(--espai-petit);
 }
