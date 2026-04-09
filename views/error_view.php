@@ -3,16 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Login - TechCorner</title>
+    <title>Error - TechCorner</title>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
     <?php include "views/header_view.php"; ?>
-    
-    <h2>Ups...</h2>
-    <p>Ho sentim, però ha ocorregut un error inesperat.</p>
-    <a href="index.php?accio=home">Anar a l'inici</a>
+
+    <main class="contenidor seccio-carret">
+        <div class="caixa-error">
+            <h2 class="titol-error">Ups...</h2>
+            <p class="missatge-error">Ho sentim, però ha ocorregut un error inesperat.</p>
+            <a href="index.php?accio=home" class="boto-primari-gran">Anar a l'inici</a>
+        </div>
+    </main>
 
     <?php include "views/footer_view.php"; ?>
 

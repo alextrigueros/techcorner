@@ -872,3 +872,28 @@ a {
 .accions-confirmacio {
     margin-top: var(--espai-gran);
 }
+
+/*ERROR*/
+.caixa-error {
+    background-color: var(--color-blanc);
+    padding: var(--espai-gran);
+    border-radius: var(--radi-bora);
+    box-shadow: var(--ombra-suau);
+    text-align: center;
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+.titol-error {
+    color: var(--color-primari);
+    font-size: 3rem;
+    margin-bottom: var(--espai-petit);
+    margin-top: 0;
+}
+
+.missatge-error {
+    font-size: 1.2rem;
+    color: var(--color-text);
+    margin-bottom: var(--espai-gran);
+    font-weight: 500;
+}
