@@ -94,6 +94,6 @@ function sincronitzarInput() {
         contenidorData.items.add(llistaFitxersSecundaris[i]);
     }
 
-    // Assignem la llista de fitxers artificial a l'input original
+    //Assignem la llista de fitxers artificial a l'input original
     inputSecundaries.files = contenidorData.files;
 }
