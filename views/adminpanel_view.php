@@ -10,7 +10,6 @@
 <body>
 
     <?php include "views/header_view.php"; ?>
-
     <h1>Panell d'Administració</h1>
 
     <h2>Gestió de Comandes</h2>
@@ -210,11 +209,13 @@
                                     ?>
                                     <label>Imatge Principal:</label><br>
                                     <!--Posem accept='image/*' per a només permetre arxius de tipus imatge-->
-                                    <input type='file' name='imatge_principal' accept='image/*' required><br><br>
+                                    <input type='file' name='imatge_principal' id='imatge_principal' accept='image/*' required><br><br>
+                                    <div id="previsualitzacio-principal"></div>
 
                                     <label>Imatges Secundàries:</label><br>
                                     <!--Passem les imatges com array fent us de l'atribut name='imatges_secundaries[]' i multiple-->
-                                    <input type='file' name='imatges_secundaries[]' accept='image/*' multiple><br><br>
+                                    <input type='file' name='imatges_secundaries[]' id='imatges_secundaries' accept='image/*' multiple><br><br>
+                                    <div id="previsualitzacio-secundaries"></div>
 
                                     <button type='submit' name='btn_afegir_producte'>Afegir Producte</button>
                             </form>
@@ -268,8 +269,9 @@
                                     }
                                     echo "</tbody></table>";
                                     ?>
-                                    <?php include "views/footer_view.php"; ?>
 
+                                    <?php include "views/footer_view.php"; ?>
+                                    <script src="assets/js/admin.js"></script>
 </body>
 
 </html>

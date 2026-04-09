@@ -347,8 +347,6 @@ a {
     padding: var(--espai-mig);
     border-radius: var(--radi-bora);
     box-shadow: var(--ombra-suau);
-    position: sticky;
-    top: 100px;
 }
 
 .grup-filtre {
