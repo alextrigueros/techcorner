@@ -10,6 +10,7 @@
     --color-text: #333333;
     --color-text-clar: #bdbdbd;
     --color-error: #dc3545;
+    --color-correcte: #28a745;
     --color-gris: #222222;
 
     /*Espaiat i Bordes*/
@@ -591,7 +592,7 @@ a {
 }
 
 .en-stock {
-    color: #28a745;
+    color: var(--color-correcte);
     background-color: #e8f5e9;
 }
 
@@ -769,7 +770,7 @@ a {
 }
 
 .gratis {
-    color: #28a745;
+    color: var(--color-correcte);
     font-weight: bold;
 }
 
@@ -832,4 +833,42 @@ a {
 
 .boto-primari-gran:hover {
     background-color: var(--color-primari-fosc);
+}
+
+/*COMANDA*/
+.confirmacio-compra {
+    background-color: var(--color-blanc);
+    padding: var(--espai-gran);
+    border-radius: var(--radi-bora);
+    box-shadow: var(--ombra-suau);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.confirmacio-compra .titol-comanda {
+    color: var(--color-primari);
+}
+
+.icona-estat {
+    font-size: 4rem;
+    margin-bottom: var(--espai-mig);
+}
+
+.icona-estat.exit {
+    color: var(--color-correcte);
+}
+
+.icona-estat.error {
+    color: var(--color-error);
+}
+
+.missatge-confirmacio {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.accions-confirmacio {
+    margin-top: var(--espai-gran);
 }

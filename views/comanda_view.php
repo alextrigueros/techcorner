@@ -9,20 +9,24 @@
 
 <body>
     <?php include "views/header_view.php"; ?>
-    <div class="contenidor-carret">
-        <?php
-        //Si la comanda s'ha processat correctament, mostrem el missatge d'èxit, sino mostrem el missatge d'error
-        if ($exit) {
-            echo "<h1>Compra finalitzada amb èxit!</h1>";
-        } else {
-            echo "<h1>Ups... hi ha hagut un problema</h1>";
-        }
-        echo "<p>$missatge</p>";
+    <main class="contenidor seccio-carret">
+        <div class="confirmacio-compra">
+            <!-- Si la comanda s'ha processat correctament, mostrem el missatge d'èxit, sino mostrem el missatge d'error -->
+            <?php if ($exit): ?>
+                <div class="icona-estat exit">✔</div>
+                <h1 class="titol-comanda">Compra finalitzada amb èxit!</h1>
+            <?php else: ?>
+                <div class="icona-estat error">✖</div>
+                <h1 class="titol-comanda">Ups... hi ha hagut un problema</h1>
+            <?php endif; ?>
 
-        echo "<br>";
-        echo "<a href='index.php?accio=botiga' class='boto-comprar'>Tornar a la botiga</a>";
-        ?>
-    </div>
+            <p class="missatge-confirmacio"><?php echo $missatge; ?></p>
+
+            <div class="accions-confirmacio">
+                <a href="index.php?accio=botiga" class="boto-primari-gran">Tornar a la botiga</a>
+            </div>
+        </div>
+    </main>
     <?php include "views/footer_view.php"; ?>
 
 </body>
