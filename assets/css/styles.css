@@ -639,3 +639,197 @@ a {
     color: var(--color-text);
     font-weight: 500;
 }
+
+/*CARRET*/
+.seccio-carret {
+    padding-top: var(--espai-mig);
+    padding-bottom: var(--espai-mig);
+    min-height: 60vh;
+}
+
+.titol-carret {
+    color: var(--color-primari);
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: var(--espai-mig);
+}
+
+.layout-carret {
+    display: flex;
+    gap: var(--espai-gran);
+    align-items: flex-start;
+    margin-top: var(--espai-mig);
+}
+
+/*Columna Productes*/
+.productes-carret {
+    flex: 1;
+}
+
+.targeta-carret-horitzontal {
+    background-color: var(--color-blanc);
+    border-radius: var(--radi-bora);
+    padding: var(--espai-mig);
+    margin-bottom: var(--espai-petit);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espai-mig);
+    box-shadow: var(--ombra-suau);
+    transition: transform 0.3s ease;
+}
+
+.targeta-carret-horitzontal:hover {
+    transform: scale(1.01);
+}
+
+.targeta-carret-horitzontal img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.info-producte-carret {
+    flex: 2;
+}
+
+.info-producte-carret h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--color-primari);
+}
+
+.preu-unitari {
+    color: var(--color-gris);
+    font-size: 0.95rem;
+    margin-top: 5px;
+}
+
+.quantitat-carret,
+.subtotal-producte {
+    flex: 1;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.subtotal-producte {
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+.enllac-eliminar {
+    color: var(--color-error);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.enllac-eliminar:hover {
+    text-decoration: underline;
+}
+
+.accions-globals a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.accions-globals a:hover {
+    text-decoration: underline;
+  
+}
+
+/*Columna Resum*/
+.resum-compra {
+    flex: 0 0 350px;
+    background-color: var(--color-blanc);
+    padding: var(--espai-gran);
+    border-radius: var(--radi-bora);
+    box-shadow: var(--ombra-suau);
+    position: sticky;
+    top: 100px;
+}
+
+.resum-compra h2 {
+    color: var(--color-primari);
+    margin-top: 0;
+    font-size: 1.3rem;
+    border-bottom: 3px solid var(--color-secundari);
+    width: fit-content;
+    padding-bottom: 5px;
+    margin-bottom: var(--espai-mig);
+}
+
+.linia-resum {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--espai-petit);
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.gratis {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.total-comanda {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: var(--espai-mig) 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.import-total {
+    font-size: 1.5rem;
+    color: var(--color-secundari);
+}
+
+.boto-finalitzar {
+    display: block;
+    background-color: var(--color-primari);
+    color: var(--color-blanc);
+    text-align: center;
+    padding: 15px;
+    border-radius: var(--radi-bora);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.boto-finalitzar:hover {
+    background-color: var(--color-primari-fosc);
+}
+
+/*Carret Buit*/
+.carret-buit {
+    background-color: var(--color-blanc);
+    border-radius: var(--radi-bora);
+    box-shadow: var(--ombra-suau);
+    padding: var(--espai-gran);
+    text-align: center;
+}
+
+.carret-buit p {
+    font-size: 1.2rem;
+    color: var(--color-text);
+    margin-bottom: var(--espai-gran);
+    font-weight: 500;
+}
+
+.boto-primari-gran {
+    display: inline-block;
+    background-color: var(--color-primari);
+    color: var(--color-blanc);
+    padding: 15px 30px;
+    border-radius: var(--radi-bora);
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.boto-primari-gran:hover {
+    background-color: var(--color-primari-fosc);
+}
