@@ -735,7 +735,7 @@ a {
 
 .accions-globals a:hover {
     text-decoration: underline;
-  
+
 }
 
 /*Columna Resum*/
@@ -894,4 +894,262 @@ a {
     color: var(--color-text);
     margin-bottom: var(--espai-gran);
     font-weight: 500;
+}
+
+/*ADMIN PANEL*/
+.principal-admin h1 {
+    color: var(--color-primari);
+    text-align: center;
+    margin-bottom: var(--espai-mig);
+}
+
+.columna-admin {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espai-mig);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/*Targetes desplegables*/
+.caixa-admin {
+    background-color: var(--color-blanc);
+    border-radius: var(--radi-bora);
+    box-shadow: var(--ombra-suau);
+    overflow: hidden;
+}
+
+.caixa-admin summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--espai-mig);
+    cursor: pointer;
+    background-color: var(--color-blanc);
+}
+
+.caixa-admin summary:hover {
+    background-color: #f9f9f9;
+}
+
+.caixa-admin summary h2 {
+    margin: 0;
+    border-bottom: 3px solid var(--color-secundari);
+    color: var(--color-primari);
+    width: fit-content;
+    padding-bottom: 5px;
+    font-size: 1.3rem;
+
+}
+
+/*fletxa animada */
+.caixa-admin summary::after {
+    content: '▼';
+    color: var(--color-primari);
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.caixa-admin[open] summary::after {
+    transform: rotate(-180deg);
+}
+
+.caixa-admin[open] summary {
+    background-color: var(--color-blanc);
+}
+
+/*Contingut interior*/
+.contingut-plegable {
+    padding: var(--espai-mig);
+}
+
+.taula-admin {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+}
+
+.taula-admin th,
+.taula-admin td {
+    padding: 12px var(--espai-mig);
+    text-align: left;
+    border-bottom: 1px solid var(--color-negre);
+}
+
+.taula-admin th {
+    background-color: var(--color-primari);
+    color: var(--color-blanc);
+    font-weight: 500;
+}
+
+.taula-admin tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.taula-admin form {
+    display: flex;
+    align-items: center;
+    gap: var(--espai-mig);
+    flex-wrap: wrap;
+}
+
+.taula-admin select,
+.taula-admin input[type="number"] {
+    padding: 6px;
+    border-radius: var(--radi-bora);
+    border: 1px solid var(--color-negre);
+    font-family: var(--font-principal);
+
+}
+
+/*botons*/
+.caixa-admin button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: var(--radi-bora);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+button[name="btn_estat"],
+button[name="btn_rol"],
+button[name="btn_stock"],
+button[name="btn_canviar_categoria"],
+button[name="btn_afegir_categoria"],
+button[name="btn_afegir_producte"] {
+    background-color: var(--color-primari);
+    color: var(--color-blanc);
+}
+
+button[name="btn_estat"]:hover,
+button[name="btn_rol"]:hover,
+button[name="btn_stock"]:hover,
+button[name="btn_canviar_categoria"]:hover,
+button[name="btn_afegir_categoria"]:hover,
+button[name="btn_afegir_producte"]:hover {
+    background-color: var(--color-primari-fosc);
+}
+
+/*Botons de borrar*/
+button[name*="eliminar"],
+button[name="btn_eliminar_usuari"] {
+    background-color: var(--color-error);
+    color: var(--color-blanc);
+}
+
+button[name*="eliminar"]:hover,
+button[name="btn_eliminar_usuari"]:hover {
+    background-color: #bd2130;
+}
+
+/*Afegir producte/categoria*/
+.formulari-admin label {
+    font-weight: bold;
+    display: block;
+    font-size: 1.2rem;
+    color: var(--color-primari);
+    margin-bottom: var(--espai-petit)
+}
+
+.formulari-admin input[type="text"],
+.formulari-admin input[type="number"],
+.formulari-admin textarea,
+.formulari-admin select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: var(--espai-mig);
+    border: 1px solid var(--color-negre);
+    border-radius: var(--radi-bora);
+    box-sizing: border-box;
+    font-family: var(--font-principal);
+}
+
+.formulari-admin input:focus,
+.formulari-admin textarea:focus,
+.formulari-admin select:focus {
+    border-color: var(--color-secundari);
+    outline: none;
+}
+
+.formulari-admin button[type="submit"] {
+    font-size: 1rem;
+    padding: 12px 20px;
+}
+
+/*Pujada d'imatges*/
+
+/*Amagar l'input original del navegador*/
+.input-file-ocult {
+    display: none;
+}
+
+.btn-pujar-fitxer {
+    display: inline-block;
+    padding: 12px 15px;
+    background-color: var(--color-fons);
+    border: 2px dashed var(--color-primari);
+    border-radius: var(--radi-bora);
+    color: var(--color-text);
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: var(--espai-petit);
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.btn-pujar-fitxer:hover {
+    background-color: #e9ecef;
+    border-color: var(--color-primari-fosc);
+}
+
+/*Previsualització d'imatges*/
+.contenidor-previsualitzacio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+    min-height: 10px;
+    padding-bottom: var(--espai-petit);
+
+}
+
+.contenidor-previsualitzacio div {
+    position: relative;
+}
+
+.contenidor-previsualitzacio img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--radi-bora);
+    border: 1px solid var(--color-negre);
+    box-shadow: var(--ombra-suau);
+}
+
+/*Botó d'esborrar ('X')*/
+.contenidor-previsualitzacio button {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: var(--color-error);
+    color: var(--color-blanc);
+    border: none;
+    border-radius: var(--radi-bora);
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: transform 0.2s;
+}
+
+.contenidor-previsualitzacio button:hover {
+    transform: scale(1.1);
+    background-color: #bd2130;
 }

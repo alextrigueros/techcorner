@@ -19,6 +19,8 @@ inputPrincipal.addEventListener('change', function () {
 
     let fitxer = this.files[0];
     if (fitxer) {
+        //Mostrem el nom del fitxer al botó
+        document.getElementById('text-imatge-principal').innerText = fitxer.name;
         //Utilitzem FileReader per a llegir el fitxer i mostrar-lo com a imatge
         let lector = new FileReader();
         //Quan el fitxer estigui carregat, creem una imatge i la mostrem al div
@@ -96,4 +98,27 @@ function sincronitzarInput() {
 
     //Assignem la llista de fitxers artificial a l'input original
     inputSecundaries.files = contenidorData.files;
+
+    //Actualitzem el text del botó per a mostrar quantes imatges secundàries s'han seleccionat
+    let text = "";
+    if (llistaFitxersSecundaris.length > 0) {
+        text = "Numero d'imatges seleccionades: " + llistaFitxersSecundaris.length;
+    } else {
+        text = "Seleccionar imatges secundàries";
+    }
+    document.getElementById('text-imatges-secundaries').innerText = text;
 }
+
+//Guardar posició d'scroll abans de recarregar
+window.addEventListener('beforeunload', () => {
+    localStorage.setItem('adminScrollPos', window.scrollY);
+});
+
+//Restaurar posició scroll en carregar
+window.addEventListener('load', () => {
+    let scrollPos = localStorage.getItem('adminScrollPos');
+    if (scrollPos) {
+        window.scrollTo(0, parseInt(scrollPos));
+        localStorage.removeItem('adminScrollPos'); //Netegem
+    }
+});
