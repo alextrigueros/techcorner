@@ -1153,3 +1153,119 @@ button[name="btn_eliminar_usuari"]:hover {
     transform: scale(1.1);
     background-color: #bd2130;
 }
+
+/*REGISTRE*/
+
+.principal-registre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--espai-gran) 0;
+    min-height: 60vh;
+}
+
+.caixa-formulari {
+    background-color: var(--color-blanc);
+    padding: var(--espai-gran);
+    border-radius: var(--radi-bora);
+    box-shadow: var(--ombra-suau);
+    width: 100%;
+    max-width: 450px;
+    margin: var(--espai-gran) auto;
+}
+
+.caixa-formulari h2 {
+    color: var(--color-primari);
+    margin-top: 0;
+    margin-bottom: var(--espai-mig);
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.missatge-error {
+    background-color: #f8d7da;
+    color: var(--color-error);
+    padding: 12px;
+    border-radius: var(--radi-bora);
+    margin-bottom: var(--espai-mig);
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/*Estructura dels camps*/
+.grup-formulari {
+    margin-bottom: 15px;
+}
+
+.grup-formulari label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--color-text);
+}
+
+.grup-formulari input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-negre);
+    border-radius: var(--radi-bora);
+    box-sizing: border-box;
+}
+
+.grup-formulari input:focus {
+    outline: none;
+    border-color: var(--color-secundari);
+}
+
+.contenidor-input-password {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.contenidor-input-password input {
+    padding-right: 40px; 
+}
+
+.boto-revelar {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+    color: var(--color-text);
+}
+
+.boto-revelar:hover {
+    opacity: 0.7;
+    background: none;
+}
+
+/*Botó de registre*/
+.formulari-registre .boto-primari-gran {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.text-peu-formulari {
+    text-align: center;
+    margin-top: var(--espai-mig);
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.text-peu-formulari a {
+    color: var(--color-primari);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.text-peu-formulari a:hover {
+    text-decoration: underline;
+}

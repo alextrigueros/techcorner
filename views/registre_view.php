@@ -10,39 +10,58 @@
 
 <body>
     <?php include "views/header_view.php"; ?>
-    <h2>Crear un compte nou</h2>
+    <div class="contenidor">
+        <div class="caixa-formulari">
+            <h2>Crear compte</h2>
 
-    <!-- Si hi ha un error, el mostrem -->
-    <?php
-    if (isset($error)) {
-        echo "<p style='color: red;'> $error </p>";
-    }
-    ?>
+            <!-- Si hi ha un error, el mostrem -->
+            <?php
+            if (isset($error)) {
+                echo "<p class='missatge-error'> $error </p>";
+            }
+            ?>
 
-    <form action="index.php?accio=registre" method="POST">
+            <form action="index.php?accio=registre" method="POST" class="formulari-registre">
+                <div class="grup-formulari">
+                    <label for="nom">Nom:</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
 
-        <label>Nom:</label><br>
-        <input type="text" name="nom" required><br><br>
+                <div class="grup-formulari">
+                    <label for="cognoms">Cognoms:</label>
+                    <input type="text" id="cognoms" name="cognoms" required>
+                </div>
 
-        <label>Cognoms:</label><br>
-        <input type="text" name="cognoms" required><br><br>
+                <div class="grup-formulari">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
 
-        <label>Email:</label><br>
-        <input type="email" name="email" required><br><br>
+                <div class="grup-formulari">
+                    <label for="password">Contrasenya:</label>
+                    <div class="contenidor-input-password">
+                        <input type="password" id="password" name="password" required>
+                        <button type="button" class="boto-revelar" onclick="togglePassword('password', this)">🔒</button>
+                    </div>
+                </div>
 
-        <label>Contrasenya:</label><br>
-        <input type="password" name="password" required><br><br>
+                <div class="grup-formulari">
+                    <label for="password_confirm">Repeteix la contrasenya:</label>
+                    <div class="contenidor-input-password">
+                        <input type="password" id="password_confirm" name="password_confirm" required>
+                        <button type="button" class="boto-revelar" onclick="togglePassword('password_confirm', this)">🔒</button>
+                    </div>
+                </div>
 
-        <label>Repeteix la contrasenya:</label><br>
-        <input type="password" name="password_confirm" required><br><br>
+                <button type="submit" name="btn_registre" class="boto-primari-gran">Registrar-se</button>
+            </form>
 
+            <p class="text-peu-formulari">Ja tens un compte? <a href="index.php?accio=login">Inicia sessió</a></p>
+        </div>
+    </div>
 
-        <button type="submit" name="btn_registre">Registrar-se</button>
-    </form>
-
-    <br>
-    <a href="index.php?accio=login">Ja tinc un compte (Inicia sessió)</a>
     <?php include "views/footer_view.php"; ?>
+    <script src="assets/js/registre.js"></script>
 
 </body>
 
