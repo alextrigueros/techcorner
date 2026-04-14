@@ -651,6 +651,7 @@ a {
     padding-bottom: 5px;
     margin-top: 0;
     margin-bottom: var(--espai-mig);
+    text-align: center;
 }
 
 .layout-carret {
@@ -1154,7 +1155,7 @@ button[name="btn_eliminar_usuari"]:hover {
     background-color: #bd2130;
 }
 
-/*REGISTRE*/
+/*REGISTRE i LOGIN*/
 
 .principal-registre {
     display: flex;
@@ -1179,7 +1180,7 @@ button[name="btn_eliminar_usuari"]:hover {
     margin-top: 0;
     margin-bottom: var(--espai-mig);
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
 .missatge-error {
@@ -1225,7 +1226,7 @@ button[name="btn_eliminar_usuari"]:hover {
 }
 
 .contenidor-input-password input {
-    padding-right: 40px; 
+    padding-right: 40px;
 }
 
 .boto-revelar {
@@ -1268,4 +1269,200 @@ button[name="btn_eliminar_usuari"]:hover {
 
 .text-peu-formulari a:hover {
     text-decoration: underline;
+}
+
+
+/*PERFIL*/
+.contenidor-perfil {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--espai-mig) var(--espai-mig) var(--espai-gran);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--espai-mig);
+    align-items: start;
+}
+
+.contenidor-perfil h1 {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--color-primari);
+    margin-bottom: var(--espai-mig);
+    margin-top: 0;
+}
+
+.missatge-correcte {
+    background-color: #e2f8d7;
+    color: var(--color-correcte);
+    padding: 12px;
+    border-radius: var(--radi-bora);
+    margin-bottom: var(--espai-mig);
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/*Targetes*/
+.dades-usuari,
+.seccio-perfil,
+.historial-comandes,
+.form-borrar-compte {
+    background-color: var(--color-blanc);
+    border-radius: var(--radi-bora);
+    box-shadow: var(--ombra-suau);
+    padding: var(--espai-gran);
+}
+
+/*Comandes*/
+.historial-comandes {
+    grid-column: 2;
+    grid-row: 2 / 5;
+}
+
+/*Títols*/
+.contenidor-perfil h3 {
+    color: var(--color-primari);
+    border-bottom: 3px solid var(--color-secundari);
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: var(--espai-mig);
+    width: fit-content;
+    font-size: 1.3rem;
+}
+
+/*Dades d'usuari*/
+.dades-usuari p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: var(--color-text);
+}
+
+/*Tancar Sessió*/
+.dades-usuari a {
+    display: inline-block;
+    color: var(--color-error);
+    font-weight: 600;
+    margin-top: var(--espai-petit);
+    text-decoration: none;
+}
+
+.dades-usuari a:hover {
+    text-decoration: underline;
+}
+
+.seccio-perfil form label {
+    font-weight: 600;
+    color: var(--color-text);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.seccio-perfil form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: var(--espai-mig);
+    border: 1px solid var(--color-text);
+    border-radius: var(--radi-bora);
+    box-sizing: border-box;
+    font-family: var(--font-principal);
+}
+
+.seccio-perfil form input[type="password"]:focus {
+    border-color: var(--color-secundari);
+    outline: none;
+}
+
+/*Botons*/
+.contenidor-perfil button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: var(--radi-bora);
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    font-family: var(--font-principal);
+}
+
+/*Botó actualitzar contrasenya*/
+button[name="btn_canviar_pass"] {
+    background-color: var(--color-primari);
+    color: var(--color-blanc);
+}
+
+button[name="btn_canviar_pass"]:hover {
+    background-color: var(--color-primari-fosc);
+}
+
+/*Botó esborrar compte*/
+
+button[name="btn_borrar_compte"] {
+    background-color: var(--color-blanc);
+    color: var(--color-error);
+    border: 2px solid var(--color-error);
+}
+
+button[name="btn_borrar_compte"]:hover {
+    background-color: var(--color-error);
+    color: var(--color-blanc);
+}
+
+/*historial de comandes*/
+.historial-comandes table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+.historial-comandes th,
+.historial-comandes td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-text-clar);
+}
+
+.historial-comandes th {
+    background-color: var(--color-primari);
+    color: var(--color-blanc);
+    font-weight: 500;
+}
+
+.historial-comandes tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/*Camps contrasenya*/
+.seccio-perfil form input[type="password"],
+.seccio-perfil form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px;
+    margin-bottom: 20px;
+    border: 1px solid var(--color-negre);
+    border-radius: var(--radi-bora);
+    box-sizing: border-box;
+    font-family: var(--font-principal);
+    height: 45px;
+}
+
+.seccio-perfil .contenidor-input-password {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.seccio-perfil .contenidor-input-password .boto-revelar {
+    position: absolute;
+    right: 12px;
+    top: 22.5px;
+    transform: translateY(-50%);
+    width: auto;
+    height: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
 }

@@ -43,7 +43,7 @@
     </div>
 
     <?php include "views/footer_view.php"; ?>
-    <script src="assets/js/registre.js"></script>
+    <script src="assets/js/contrasenya.js"></script>
 
 </body>
 

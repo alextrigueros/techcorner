@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ca">
-<html>
 
 <head>
     <meta charset="UTF-8">
@@ -17,14 +16,12 @@
         <div class="dades-usuari">
             <h3>Dades personals</h3>
             <?php
-
             $nom_complet = $usuari['nom'] . " " . $usuari['cognoms'];
             $email = $usuari['email'];
 
-            echo "<p>Nom:</strong> $nom_complet</p>";
-            echo "<p>Email:</strong> $email</p>";
+            echo "<p><strong>Nom:</strong> $nom_complet</p>";
+            echo "<p><strong>Email:</strong> $email</p>";
             ?>
-            <br>
             <a href="index.php?accio=logout">Tancar Sessió</a>
         </div>
 
@@ -33,28 +30,37 @@
 
             <?php
             if (isset($error_password)) {
-                echo "<p>$error_password</p>";
+                echo "<p class='missatge-error'>$error_password</p>";
             }
             if (isset($msg_password)) {
-                echo "<p>$msg_password</p>";
+                echo "<p class='missatge-correcte'>$msg_password</p>";
             }
             ?>
 
             <form action="index.php?accio=perfil" method="POST">
-                <label>Contrasenya actual:</label><br>
-                <input type="password" name="pass_actual" required><br><br>
+                <label>Contrasenya actual:</label>
+                <div class="contenidor-input-password">
+                    <input type="password" id="pass_actual" name="pass_actual" required>
+                    <button type="button" class="boto-revelar" onclick="togglePassword('pass_actual', this)">🔒</button>
+                </div>
 
-                <label>Nova contrasenya:</label><br>
-                <input type="password" name="nova_pass" required><br><br>
+                <label>Nova contrasenya:</label>
+                <div class="contenidor-input-password">
+                    <input type="password" id="nova_pass" name="nova_pass" required>
+                    <button type="button" class="boto-revelar" onclick="togglePassword('nova_pass', this)">🔒</button>
+                </div>
 
-                <label>Repeteix la nova contrasenya:</label><br>
-                <input type="password" name="nova_pass_confirm" required><br><br>
+                <label>Repeteix la nova contrasenya:</label>
+                <div class="contenidor-input-password">
+                    <input type="password" id="nova_pass_confirm" name="nova_pass_confirm" required>
+                    <button type="button" class="boto-revelar" onclick="togglePassword('nova_pass_confirm', this)">🔒</button>
+                </div>
 
                 <button type="submit" name="btn_canviar_pass">Actualitzar contrasenya</button>
             </form>
         </div>
-        <br>
-        <form method="POST" onsubmit="return confirm('Estas segur que vols esborrar el teu compte? Aquesta acció no es pot desfer')">
+
+        <form method="POST" class="form-borrar-compte" onsubmit="return confirm('Estas segur que vols esborrar el teu compte? Aquesta acció no es pot desfer')">
             <button type="submit" name="btn_borrar_compte">
                 Borrar el meu compte
             </button>
@@ -99,6 +105,7 @@
         </div>
     </div>
     <?php include "views/footer_view.php"; ?>
+    <script src="assets/js/contrasenya.js"></script>
 </body>
 
 </html>
