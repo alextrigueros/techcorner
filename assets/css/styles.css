@@ -1466,3 +1466,52 @@ button[name="btn_borrar_compte"]:hover {
     padding: 0;
     margin: 0;
 }
+
+/*POLÍTIQUES/TERMES*/
+
+.contenidor-info {
+    max-width: 900px;
+    margin: var(--espai-gran) auto;
+    background-color: var(--color-blanc);
+    padding: var(--espai-gran);
+    border-radius: var(--radi-bora);
+    box-shadow: var(--ombra-suau);
+    line-height: 1.6;
+}
+
+/*Títol*/
+.contenidor-info h1 {
+    color: var(--color-primari);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: var(--espai-gran);
+    font-size: 2.2rem;
+}
+
+/*Subtítols*/
+.contenidor-info section h2 {
+    color: var(--color-primari);
+    font-size: 1.5rem;
+    margin-top: var(--espai-gran);
+    margin-bottom: var(--espai-petit);
+    border-bottom: 3px solid var(--color-secundari);
+    width: fit-content;
+}
+
+/*text*/
+.contenidor-info p {
+    margin-bottom: var(--espai-mig);
+    color: var(--color-text);
+    text-align: justify;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+/* Llistes de dades */
+.contenidor-info li {
+    margin-bottom: 8px;
+    position: relative;
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: 1rem;
+}

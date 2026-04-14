@@ -10,7 +10,7 @@
 <body>
     <?php include "views/header_view.php"; ?>
 
-    <div class="contenidor-fitxa">
+    <div class="contenidor-info">
         <h1>Termes i Condicions d'ús</h1>
         <p>Benvingut a TechCorner. L'ús d'aquesta plataforma implica l'acceptació d'aquests termes.</p>
 

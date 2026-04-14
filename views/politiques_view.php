@@ -10,7 +10,7 @@
 <body>
     <?php include "views/header_view.php"; ?>
 
-    <div class="contenidor-fitxa">
+    <div class="contenidor-info">
         <h1>Polítiques de Privacitat</h1>
 
         <section>
