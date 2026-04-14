@@ -99,6 +99,27 @@ a {
     font-weight: 500;
     font-size: 1.1rem;
     color: var(--color-text);
+    text-decoration: none;
+    color: var(--color-text);
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.llista-nav li a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--color-secundari);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.llista-nav li a:hover::after {
+    width: 100%;
 }
 
 .llista-nav li a:hover {
