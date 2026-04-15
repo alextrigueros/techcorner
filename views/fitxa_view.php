@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title><?php echo $p['nom']; ?> - TechCorner</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/logos/favicon.png">
 </head>
 
 <body>
@@ -13,6 +15,15 @@
         <div class="enllac-tornar">
             <a href="index.php?accio=botiga">← Tornar a la botiga</a>
         </div>
+
+        <?php if (isset($_SESSION['missatge_exit'])): ?>
+            <div class="alerta-exit">
+                <?php
+                echo $_SESSION['missatge_exit'];
+                unset($_SESSION['missatge_exit']);
+                ?>
+            </div>
+        <?php endif; ?>
 
         <div class="layout-fitxa">
             <div class="columna-miniatures">
@@ -50,7 +61,7 @@
 
                 <div class="accions-compra">
                     <?php if ($p['stock'] > 0): ?>
-                        <a href="index.php?accio=afegir_carret&id=<?php echo $p['producte_id']; ?>" class="boto-carret-gran">
+                        <a href="index.php?accio=afegir_carret&id=<?php echo $p['producte_id']; ?>&origen=fitxa" class="boto-carret-gran">
                             Afegir al carret
                         </a>
                     <?php endif; ?>
@@ -65,6 +76,8 @@
     </div>
     <?php include "views/footer_view.php"; ?>
     <script src="assets/js/fitxa.js"></script>
+    <button id="btnPujar" class="boto-pujar" title="Anar a dalt">🡩</button>
+    <script src="assets/js/botopujar.js"></script>
 </body>
 
 </html>

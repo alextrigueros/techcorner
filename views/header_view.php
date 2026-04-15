@@ -10,19 +10,21 @@
             <ul class="llista-nav">
 
                 <li><a href="index.php?accio=botiga">Botiga</a></li>
-                <?php
-                // Si l'usuari és admin, mostrar enllaç al panell d'administració
-                if (isset($_SESSION['user_rol']) && $_SESSION['user_rol'] === 'admin') {
-                    echo "<li><a href='index.php?accio=admin'>Panell d'administració</a></li>";
-                }
-                ?>
-
+               
                 <?php
                 if (isset($_SESSION['user_id'])) {
                     echo "<li><a href='index.php?accio=perfil'>Compte</a></li>";
                     echo "<li><a href='index.php?accio=carret' class='carret-icona'>Carret</a></li>";
                 }
                 ?>
+
+                 <?php
+                // Si l'usuari és admin, mostrar enllaç al panell d'administració
+                if (isset($_SESSION['user_rol']) && $_SESSION['user_rol'] === 'admin') {
+                    echo "<li><a href='index.php?accio=admin'>Panell d'administració</a></li>";
+                }
+                ?>
+
 
                 <?php
                 // Si l'usuari no esta identificat, mostrar enllaç per iniciar sessió o registrar-se

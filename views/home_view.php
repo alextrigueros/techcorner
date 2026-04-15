@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>Inici - TechCorner</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/logos/favicon.png">
 </head>
 
 <body>
@@ -60,21 +62,36 @@
             </ul>
         </section>
 
-        <h2>Per què comprar a TechCorner?</h2>
+        <h2>Per què TechCorner?</h2>
         <section class="seccio-avantatges">
             <ul class="llista-avantatges">
-                <li>Enviament en 24h</li>
-                <li>Garantia oficial de 3 anys</li>
-                <li>Atenció al client personalitzada</li>
-                <li>Gran varietat de productes</li>
-                <li>Experiència dins del sector</li>
-                <li>Preus competitius</li>
+                <li>
+                    <div class="tick">✔</div>Enviament en 24h
+                </li>
+                <li>
+                    <div class="tick">✔</div>Garantia oficial de 3 anys
+                </li>
+                <li>
+                    <div class="tick">✔</div>Atenció al client personalitzada
+                </li>
+                <li>
+                    <div class="tick">✔</div>Gran varietat de productes
+                </li>
+                <li>
+                    <div class="tick">✔</div>Experiència dins del sector
+                </li>
+                <li>
+                    <div class="tick">✔</div>Preus competitius
+                </li>
+                </li>
             </ul>
         </section>
 
     </main>
 
     <?php include "views/footer_view.php"; ?>
+    <button id="btnPujar" class="boto-pujar" title="Anar a dalt">🡩</button>
+    <script src="assets/js/botopujar.js"></script>
 </body>
 
 </html>

@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>Termes i Condicions - TechCorner</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/logos/favicon.png">
 </head>
 
 <body>
@@ -42,6 +44,8 @@
     </div>
 
     <?php include "views/footer_view.php"; ?>
+    <button id="btnPujar" class="boto-pujar" title="Anar a dalt">🡩</button>
+    <script src="assets/js/botopujar.js"></script>
 </body>
 
 </html>

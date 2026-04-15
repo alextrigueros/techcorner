@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>Panell d'administració - TechCorner</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/logos/favicon.png">
 </head>
 
 <body>
@@ -65,11 +67,11 @@
                                 }
 
                                 echo "<tr>
-                <td>#$id</td>
-                <td>$nom_complet</td>
-                <td>$data</td>
-                <td>$total €</td>
-                <td><strong>$estat</strong></td>
+                <td data-label='ID'>#$id</td>
+                <td data-label='Client'>$nom_complet</td>
+                <td data-label='Data'>$data</td>
+                <td data-label='Total'>$total €</td>
+                <td data-label='Estat'><strong>$estat</strong></td>
                 <td>
                     <form method='POST'>
                     
@@ -125,10 +127,11 @@
                                 }
 
                                 echo "<tr>
-                <td>$nom</td>
-                <td>$email</td>
-                <td>$rol</td>
+                <td data-label='Nom'>$nom</td>
+                <td data-label='Email'>$email</td>
+                <td data-label='Rol'>$rol</td>
                 <td>
+                <div class='accions-grup'>
                     <form method='POST' style='display:inline;'>
 
                                         <!-- Enviem l'id de l'usuari i el nou rol per actualitzar-lo o eliminar l'usuari -->
@@ -141,6 +144,7 @@
                         <button type='submit' name='btn_rol'>Canviar Rol</button>
                         <button type='submit' name='btn_eliminar_usuari'>Borrar</button>
                     </form>
+                </div>
                 </td>
             </tr>";
                             }
@@ -169,8 +173,8 @@
                                 $nom_c = $cat['nom'];
 
                                 echo "<tr>
-                                <td>$id_c</td>
-                                <td>$nom_c</td>
+                                <td data-label='ID'>$id_c</td>
+                                <td data-label='Nom'>$nom_c</td>
                                 <td>";
                                 //Evitem mostrar el botó de borrar per la categoria "Sense Categoria"
                                 if ($id_c != 1) {
@@ -179,7 +183,7 @@
                                             <button type='submit' name='btn_eliminar_categoria'>Borrar Categoria</button>
                                         </form>";
                                 } else {
-                                    echo "<span>Protegida</span>";
+                                    echo "<div class='accions-grup'><span>Protegida</span></div>";
                                 }
 
                                 echo "</td> </tr>";
@@ -283,7 +287,9 @@
                             <tr>
                                 <th>Producte</th>
                                 <th>Stock Actual</th>
+                                <th>Categoria</th>
                                 <th>Accions</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -295,9 +301,18 @@
                                 $stock = $p['stock'];
                                 $cat_actual = $p['categoria_id'];
 
+                                $categoria_nom = '';
+                                foreach ($categories_disponibles as $cat) {
+                                    if ($cat['categoria_id'] == $cat_actual) {
+                                        $categoria_nom = $cat['nom'];
+                                        break;
+                                    }
+                                }
+
                                 echo "<tr>
-                                        <td>$nom_p</td>
-                                        <td>$stock</td>
+                                        <td data-label='Producte'>$nom_p</td>
+                                        <td data-label='Stock Actual'>$stock</td>
+                                        <td data-label='Categoria'>$categoria_nom</td>
                                         <td>
                                             <form method='POST'>
                                             
@@ -333,6 +348,8 @@
     </div>
     <?php include "views/footer_view.php"; ?>
     <script src="assets/js/admin.js"></script>
+    <button id="btnPujar" class="boto-pujar" title="Anar a dalt">🡩</button>
+    <script src="assets/js/botopujar.js"></script>
 </body>
 
 </html>

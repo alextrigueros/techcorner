@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>Perfil - TechCorner</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/logos/favicon.png">
 </head>
 
 <body>
@@ -67,7 +69,7 @@
         </form>
 
         <div class="historial-comandes">
-            <h3>El meu historial de comandes</h3>
+            <h3>Historial de comandes</h3>
 
             <?php
             if (count($comandes) === 0) {
@@ -91,10 +93,10 @@
                     $estat = ucfirst($c['estat']);
 
                     echo "<tr>
-                        <td>#$id_comanda</td>
-                        <td>$data</td>
-                        <td>$total €</td>
-                        <td>$estat</td>
+                        <td data-label='Nº de comanda'>#$id_comanda</td>
+                        <td data-label='Data'>$data</td>
+                        <td data-label='Total'>$total €</td>
+                        <td data-label='Estat'>$estat</td>
                     </tr>";
                 }
 
@@ -106,6 +108,8 @@
     </div>
     <?php include "views/footer_view.php"; ?>
     <script src="assets/js/contrasenya.js"></script>
+    <button id="btnPujar" class="boto-pujar" title="Anar a dalt">🡩</button>
+    <script src="assets/js/botopujar.js"></script>
 </body>
 
 </html>

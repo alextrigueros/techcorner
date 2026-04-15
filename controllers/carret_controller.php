@@ -25,9 +25,13 @@ if ($accio == 'afegir_carret') {
     if ($fila_stock['stock'] > 0) {
         $carret_id = obtenirIdCarret($conn, $usuari_id);
         afegirProducteAlCarret($conn, $carret_id, $producte_id);
-        header("Location: index.php?accio=botiga");
+        $_SESSION['missatge_exit'] = "Producte afegit al carret correctament!";
+    }
+    if (isset($_GET['origen']) && $_GET['origen'] == 'fitxa') {
+        //Si venim de la fitxa, hi tornem passant l'ID del producte
+        header("Location: index.php?accio=fitxa&id=$producte_id");
     } else {
-        //Si no hi ha stock, tornem a la botiga
+        //Sino anem a la botiga
         header("Location: index.php?accio=botiga");
     }
     exit;

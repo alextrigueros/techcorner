@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>Política de Privacitat - TechCorner</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/logos/favicon.png">
 </head>
 
 <body>
@@ -14,12 +16,12 @@
         <h1>Polítiques de Privacitat</h1>
 
         <section>
-            <h2>1. Informació al Responsable</h2>
+            <h2>1. Propòsit</h2>
             <p>El lloc web TechCorner és propietat i està gestionat per Alex Trigueros León. La nostra activitat principal és la comercialització de productes electrònics.</p>
         </section>
 
         <section>
-            <h2>2. Tipus de dades que recollim</h2>
+            <h2>2. Dades que recollim</h2>
             <p>Per al correcte funcionament de la botiga, recollim la següent informació:</p>
             <ul>
                 <li>Dades de registre: Nom, cognoms i correu electrònic.</li>
@@ -41,6 +43,8 @@
     </div>
 
     <?php include "views/footer_view.php"; ?>
+    <button id="btnPujar" class="boto-pujar" title="Anar a dalt">🡩</button>
+    <script src="assets/js/botopujar.js"></script>
 </body>
 
 </html>

@@ -5,12 +5,21 @@
     <meta charset="UTF-8">
     <title>Botiga - TechCorner</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/logos/favicon.png">
 </head>
 
 <body>
     <?php include "views/header_view.php"; ?>
     <h1 class="titol-pagina">Catàleg TechCorner</h1>
-
+    <?php if (isset($_SESSION['missatge_exit'])): ?>
+        <div class="alerta-exit">
+            <?php
+            echo $_SESSION['missatge_exit'];
+            unset($_SESSION['missatge_exit']);
+            ?>
+        </div>
+    <?php endif; ?>
     <div class="contenidor layout-botiga">
         <div class="filtres">
             <form action="index.php" method="GET">
@@ -20,6 +29,29 @@
                     <h3>Cercador</h3>
                     <!--Mantindrem al cercador el que l'usuari ha introduït amb la variable $cerca-->
                     <input type="text" name="cerca" value="<?php echo $cerca; ?>" placeholder="Busca un producte...">
+                </div>
+
+                <div class="grup-filtre">
+                    <h3>Ordenar per</h3>
+                    <select name="ordre">
+                        <option value="">Per defecte</option>
+                        <?php
+                        //Si l'usuari ha triat ordenar per preu ascendent, marquem aquesta opció com a selected al desplegable
+                        $sel_asc = "";
+                        if ($ordre == "preu_asc") {
+                            $sel_asc = "selected";
+                        }
+
+                        //Si l'usuari ha triat ordenar per preu descendent, marquem aquesta opció com a selected al desplegable
+                        $sel_desc = "";
+                        if ($ordre == "preu_desc") {
+                            $sel_desc = "selected";
+                        }
+                        //Construïm les opcions de l'ordre, amb el selected si cal
+                        echo "<option value='preu_asc' $sel_asc>Preu més baix</option>";
+                        echo "<option value='preu_desc' $sel_desc>Preu més alt</option>";
+                        ?>
+                    </select>
                 </div>
 
                 <div class="grup-filtre">
@@ -67,33 +99,11 @@
                     ?>
                 </div>
 
-                <div class="grup-filtre">
-                    <h3>Ordenar per</h3>
-                    <select name="ordre">
-                        <option value="">Per defecte</option>
-                        <?php
-                        //Si l'usuari ha triat ordenar per preu ascendent, marquem aquesta opció com a selected al desplegable
-                        $sel_asc = "";
-                        if ($ordre == "preu_asc") {
-                            $sel_asc = "selected";
-                        }
 
-                        //Si l'usuari ha triat ordenar per preu descendent, marquem aquesta opció com a selected al desplegable
-                        $sel_desc = "";
-                        if ($ordre == "preu_desc") {
-                            $sel_desc = "selected";
-                        }
-                        //Construïm les opcions de l'ordre, amb el selected si cal
-                        echo "<option value='preu_asc' $sel_asc>Preu més baix</option>";
-                        echo "<option value='preu_desc' $sel_desc>Preu més alt</option>";
-                        ?>
-                    </select>
-                </div>
-
-                <br>
                 <button type="submit">Aplicar Filtres</button>
                 <!-- Enllaç per netejar els filtres recarregant la pàgina -->
-                <a href="index.php?accio=botiga">Netejar</a>
+
+                <a href="index.php?accio=botiga&reset=1">Netejar</a>
             </form>
         </div>
 
@@ -132,6 +142,9 @@
         </div>
     </div>
     <?php include "views/footer_view.php"; ?>
+    <script src="assets/js/botiga.js"></script>
+    <button id="btnPujar" class="boto-pujar" title="Anar a dalt">🡩</button>
+    <script src="assets/js/botopujar.js"></script>
 </body>
 
 </html>
