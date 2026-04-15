@@ -867,7 +867,7 @@ a {
 }
 
 .import-total {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--color-secundari);
 }
 
@@ -1674,7 +1674,7 @@ button[name="btn_borrar_compte"]:hover {
         gap: var(--espai-mig);
     }
 
-     .filtres {
+    .filtres {
         padding: var(--espai-petit);
     }
 
@@ -1960,6 +1960,12 @@ button[name="btn_borrar_compte"]:hover {
     .miniatura {
         width: 70px;
         height: 70px;
+    }
+
+    /*PERFIL*/
+    .dades-usuari,
+    .seccio-perfil {
+        padding: 20px;
     }
 
     /*CARRET*/

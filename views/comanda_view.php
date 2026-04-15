@@ -30,7 +30,7 @@
         </div>
     </main>
     <?php include "views/footer_view.php"; ?>
-    <button id="btnPujar" class="boto-pujar" title="Anar a dalt">🡩</button>
+    <button id="btnPujar" class="boto-pujar" title="Anar a dalt">↑</button>
     <script src="assets/js/botopujar.js"></script>
 
 </body>
