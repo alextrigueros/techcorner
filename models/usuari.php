@@ -2,24 +2,24 @@
 //Funcio per comprovar les credencials de l'usuari
 function comprovarUsuari($conn, $email, $password)
 {
-    //Busquem l'usuari per l'email
-    $sql = "SELECT * FROM USUARIS WHERE email = '$email'";
+    $email_net = mysqli_real_escape_string($conn, $email);
+    $sql = "SELECT * FROM USUARIS WHERE email = '$email_net'";
     $resultat = mysqli_query($conn, $sql);
     $usuari = mysqli_fetch_assoc($resultat);
 
     if ($usuari && password_verify($password, $usuari['contrasenya'])) {
-        return $usuari; // Retornem les dades de l'usuari
+        return $usuari;
     }
-    return false; // Si no coincideix, retornem fals
+    return false;
 }
 
 //Funció per veure si un email ja està agafat
 function existeixEmail($conn, $email)
 {
-    $sql = "SELECT email FROM USUARIS WHERE email = '$email'";
+    $email_net = mysqli_real_escape_string($conn, $email);
+    $sql = "SELECT email FROM USUARIS WHERE email = '$email_net'";
     $resultat = mysqli_query($conn, $sql);
 
-    //Si troba alguna fila, vol dir que l'email ja existeix
     if (mysqli_num_rows($resultat) > 0) {
         return true;
     } else {
@@ -30,9 +30,15 @@ function existeixEmail($conn, $email)
 //Funció per inserir el nou usuari a la base de dades
 function registrarUsuari($conn, $nom, $cognoms, $email, $password)
 {
-    $sql = "INSERT INTO USUARIS (nom, cognoms, email, contrasenya) VALUES ('$nom', '$cognoms', '$email', '$password')";
+    //Netejem totes les dades del formulari de registre
+    $nom_net = mysqli_real_escape_string($conn, $nom);
+    $cognoms_nets = mysqli_real_escape_string($conn, $cognoms);
+    $email_net = mysqli_real_escape_string($conn, $email);
+    $password_net = mysqli_real_escape_string($conn, $password);
 
-    //Si la comanda funciona, retornem true
+    $sql = "INSERT INTO USUARIS (nom, cognoms, email, contrasenya) 
+            VALUES ('$nom_net', '$cognoms_nets', '$email_net', '$password_net')";
+
     if (mysqli_query($conn, $sql)) {
         return true;
     } else {
@@ -61,7 +67,8 @@ function obtenirComandesUsuari($conn, $usuari_id)
 }
 
 //Funció per obtenir el hash de la contrasenya actual
-function obtenirHashContrasenya($conn, $usuari_id) {
+function obtenirHashContrasenya($conn, $usuari_id)
+{
     $sql = "SELECT contrasenya FROM USUARIS WHERE usuari_id = $usuari_id";
     $resultat = mysqli_query($conn, $sql);
     $fila = mysqli_fetch_assoc($resultat);
@@ -69,26 +76,30 @@ function obtenirHashContrasenya($conn, $usuari_id) {
 }
 
 //Funció per actualitzar la contrasenya
-function actualitzarContrasenya($conn, $usuari_id, $nova_password_xifrada) {
+function actualitzarContrasenya($conn, $usuari_id, $nova_password_xifrada)
+{
     $sql = "UPDATE USUARIS SET contrasenya = '$nova_password_xifrada' WHERE usuari_id = $usuari_id";
     return mysqli_query($conn, $sql);
 }
 
 //Funcio per obtenir tots els usuaris
-function obtenirTotsUsuaris($conn) {
+function obtenirTotsUsuaris($conn)
+{
     $sql = "SELECT usuari_id, nom, cognoms, email, rol FROM USUARIS";
     $res = mysqli_query($conn, $sql);
     return mysqli_fetch_all($res, MYSQLI_ASSOC);
 }
 
 //Funcio per eliminar un usuari
-function eliminarUsuari($conn, $id) {
+function eliminarUsuari($conn, $id)
+{
     $sql = "DELETE FROM USUARIS WHERE usuari_id = $id";
     return mysqli_query($conn, $sql);
 }
 
 //Funcio per actualitzar el rol d'un usuari
-function actualitzarRolUsuari($conn, $id, $nou_rol) {
+function actualitzarRolUsuari($conn, $id, $nou_rol)
+{
     $sql = "UPDATE USUARIS SET rol = '$nou_rol' WHERE usuari_id = $id";
     return mysqli_query($conn, $sql);
 }

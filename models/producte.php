@@ -1,14 +1,14 @@
 <?php
-//Funcio per obtenir els productes segons els filtres que ens arriben del controller
+
+//Consulta base on tenim 1=1 per poder anar afegint condicions nomes amb AND
 function obtenirProductesFiltrats($conn, $cerca, $categories, $marques, $ordre)
 {
-    //Consulta base on tenim 1=1 per poder anar afegint condicions nomes amb AND
     $sql = "SELECT * FROM PRODUCTES WHERE 1=1";
 
-    //Si l'usuari ha buscat una paraula al cercador
     if ($cerca != "") {
-        //Posem % al principi i al final per buscar aquesta paraula en qualsevol part del nom o la descripcio
-        $sql = $sql . " AND (nom LIKE '%$cerca%' OR descripcio LIKE '%$cerca%')";
+        // Netejem la variable de cerca abans de posar-la a la query
+        $cerca_neta = mysqli_real_escape_string($conn, $cerca);
+        $sql = $sql . " AND (nom LIKE '%$cerca_neta%' OR descripcio LIKE '%$cerca_neta%')";
     }
 
     //Si l'usuari ha marcat categories (ens arriba un array)
@@ -69,15 +69,25 @@ function modificarStock($conn, $id, $quantitat)
 //Funció per afegir una nova categoria
 function afegirCategoria($conn, $nom, $descripcio)
 {
-    $sql = "INSERT INTO CATEGORIES (nom, descripcio) VALUES ('$nom', '$descripcio')";
+    //Netejem els textos
+    $nom_net = mysqli_real_escape_string($conn, $nom);
+    $descripcio_neta = mysqli_real_escape_string($conn, $descripcio);
+
+    $sql = "INSERT INTO CATEGORIES (nom, descripcio) VALUES ('$nom_net', '$descripcio_neta')";
     return mysqli_query($conn, $sql);
 }
 
 //Funció per afegir un nou producte
 function afegirProducte($conn, $nom, $marca, $descripcio, $preu, $stock, $imatge_url, $categoria_id)
 {
+    // Escapem els caràcters especials (com les cometes simples) per evitar errors de sintaxi i injeccions SQL
+    $nom_net = mysqli_real_escape_string($conn, $nom);
+    $marca_neta = mysqli_real_escape_string($conn, $marca);
+    $desc_neta = mysqli_real_escape_string($conn, $descripcio);
+
     $sql = "INSERT INTO PRODUCTES (nom, marca, descripcio, preu, stock, imatge_url, categoria_id) 
-            VALUES ('$nom', '$marca', '$descripcio', $preu, $stock, '$imatge_url', $categoria_id)";
+            VALUES ('$nom_net', '$marca_neta', '$desc_neta', $preu, $stock, '$imatge_url', $categoria_id)";
+
     return mysqli_query($conn, $sql);
 }
 
@@ -103,7 +113,8 @@ function actualitzarCategoriaProducte($conn, $id_producte, $id_categoria)
 }
 
 //Funció per obtenir productes aleatoris
-function obtenirProductesRandom($conn, $limit = 4) {
+function obtenirProductesRandom($conn, $limit = 4)
+{
     $sql = "SELECT * FROM PRODUCTES ORDER BY RAND() LIMIT $limit";
     $res = mysqli_query($conn, $sql);
     return mysqli_fetch_all($res, MYSQLI_ASSOC);
