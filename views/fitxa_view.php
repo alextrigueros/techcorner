@@ -74,6 +74,7 @@
             <p><?php echo $p['descripcio']; ?></p>
         </div>
     </div>
+    <?php include "views/chatbot_view.php"; ?>
     <?php include "views/footer_view.php"; ?>
     <script src="assets/js/fitxa.js"></script>
     <button id="btnPujar" class="boto-pujar" title="Anar a dalt">↑</button>

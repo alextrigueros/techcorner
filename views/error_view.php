@@ -19,7 +19,7 @@
             <a href="index.php?accio=home" class="boto-primari-gran">Anar a l'inici</a>
         </div>
     </main>
-
+    <?php include "views/chatbot_view.php"; ?>
     <?php include "views/footer_view.php"; ?>
     <button id="btnPujar" class="boto-pujar" title="Anar a dalt">↑</button>
     <script src="assets/js/botopujar.js"></script>

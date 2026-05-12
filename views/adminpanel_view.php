@@ -346,6 +346,7 @@
             </details>
         </div>
     </div>
+    <?php include "views/chatbot_view.php"; ?>
     <?php include "views/footer_view.php"; ?>
     <script src="assets/js/admin.js"></script>
     <button id="btnPujar" class="boto-pujar" title="Anar a dalt">↑</button>

@@ -46,21 +46,23 @@ a {
 
 /*Botó per pujar a dalt*/
 .boto-pujar {
-    display: none;
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 2000;
+    bottom: 20px;
+    right: 80px;
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radi-bora);
     background-color: var(--color-primari);
     color: var(--color-blanc);
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: var(--radi-bora);
-    font-size: 1.5rem;
     font-weight: bold;
+    border: none;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
     box-shadow: var(--ombra-suau);
+    z-index: 2000;
     transition: background-color 0.3s, transform 0.3s;
 }
 
@@ -1610,7 +1612,7 @@ button[name="btn_borrar_compte"]:hover {
     font-size: 1.1rem;
 }
 
-/* Llistes de dades */
+/*Llistes de dades*/
 .contenidor-info li {
     margin-bottom: 8px;
     position: relative;
@@ -1618,6 +1620,223 @@ button[name="btn_borrar_compte"]:hover {
     font-weight: 500;
     font-size: 1rem;
 }
+
+
+/*CHATBOT*/
+.chatbot-contenidor {
+    position: fixed;
+    bottom: 30px;
+    right: 90px;
+    z-index: 2000;
+}
+
+.btn-flotant-xat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radi-bora);
+    background-color: var(--color-primari);
+    color: var(--color-blanc);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: var(--ombra-suau);
+    z-index: 2000;
+    transition: background-color 0.3s, transform 0.3s;
+    overflow: hidden;
+}
+
+.btn-flotant-xat:hover {
+    transform: scale(1.05);
+    background-color: var(--color-primari-fosc);
+}
+
+.btn-flotant-xat img {
+    width: 50%;
+}
+
+.finestra-xat {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    height: 450px;
+    background-color: var(--color-blanc);
+    border-radius: var(--radi-bora);
+    box-shadow: var(--ombra-suau);
+    z-index: 3000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.xat-capcalera {
+    background-color: var(--color-primari);
+    color: var(--color-blanc);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.xat-capcalera h4 {
+    margin: 0;
+}
+
+.btn-tancar {
+    width: 25px;
+    height: 25px;
+    background: none;
+    border: none;
+    color: var(--color-blanc);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.btn-tancar img {
+    width: 100%;
+    /* La X ocupa tot el botó petit */
+    height: auto;
+}
+
+.xat-missatges {
+    height: 300px;
+    overflow-y: auto;
+    padding: 15px;
+    background-color: var(--color-blanc);
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.missatge {
+    padding: 10px 14px;
+    border-radius: 15px;
+    max-width: 80%;
+    font-size: 0.95rem;
+    word-wrap: break-word;
+}
+
+.missatge.usuari {
+    background-color: var(--color-primari);
+    color: var(--color-blanc);
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+}
+
+.missatge.bot {
+    background-color: #e9ecef;
+    color: var(--color-text);
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+}
+
+.xat-inputs {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid var(--color-text-clar);
+    background-color: var(--color-blanc);
+    justify-content: center;
+}
+
+.xat-inputs input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid var(--color-text-clar);
+    border-radius: var(--radi-bora);
+    margin-right: 5px;
+}
+
+#input-imatge-xat {
+    display: none;
+}
+
+#btn-enviar-xat {
+    background-color: var(--color-primari);
+    color: var(--color-blanc);
+    border: none;
+    border-radius: var(--radi-bora);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 30px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: var(--espai-petit) var(--espai-mig);
+    margin-top: auto;
+}
+
+#btn-enviar-xat:hover {
+    background-color: var(--color-primari-fosc);
+}
+
+#btn-pujar-imatge {
+    background-color: var(--color-primari);
+    color: var(--color-blanc);
+    border: none;
+    border-radius: var(--radi-bora);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 30px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: var(--espai-petit) var(--espai-mig);
+    margin-top: auto;
+    margin-right: 5px;
+}
+
+#btn-pujar-imatge:hover {
+    background-color: var(--color-primari-fosc);
+}
+
+#btn-enviar-xat:disabled {
+    background-color: var(--color-text-clar);
+    color: var(--color-blanc);
+    cursor: not-allowed;
+}
+
+#input-xat:disabled {
+    background-color: var(--color-text-clar);
+    color: var(--color-text);
+    cursor: not-allowed;
+}
+
+#btn-pujar-imatge:disabled {
+    background-color: var(--color-text-clar);
+    color: var(--color-blanc);
+    cursor: not-allowed;
+}
+
+.animacio-pensant {
+    color: var(--color-text-clar);
+    animation: polsar 1.5s infinite ease-in-out;
+}
+
+@keyframes polsar {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
 
 /*AJUSTOS RESPONSIVES*/
 
@@ -1768,6 +1987,13 @@ button[name="btn_borrar_compte"]:hover {
         grid-column: 1;
         grid-row: auto;
     }
+
+    /*CHATBOT*/
+    .finestra-xat {
+        width: 450px;
+        height: 600px;
+        bottom: 90px;
+    }
 }
 
 
@@ -1776,7 +2002,7 @@ button[name="btn_borrar_compte"]:hover {
 
     .boto-pujar {
         bottom: 20px;
-        right: 20px;
+        right: 75px;
         padding: 10px 14px;
         font-size: 1.3rem;
     }
@@ -2099,5 +2325,12 @@ button[name="btn_borrar_compte"]:hover {
         width: 100%;
         margin: 0 auto;
         text-align: center;
+    }
+
+    /*CHATBOT*/
+    .finestra-xat {
+        width: 350px;
+        height: 450px;
+        bottom: 90px;
     }
 }

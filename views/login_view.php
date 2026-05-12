@@ -43,7 +43,7 @@
             <p class="text-peu-formulari">No tens un compte? <a href="index.php?accio=registre">Registra't</a></p>
         </div>
     </div>
-
+    <?php include "views/chatbot_view.php"; ?>
     <?php include "views/footer_view.php"; ?>
     <script src="assets/js/contrasenya.js"></script>
     <button id="btnPujar" class="boto-pujar" title="Anar a dalt">↑</button>
