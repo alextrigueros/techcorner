@@ -1,15 +1,13 @@
-//Guardar posició d'scroll abans de recarregar
-window.addEventListener('beforeunload', () => {
-    localStorage.setItem('adminScrollPos', window.scrollY);
-});
-
 //Restaurar posició scroll en carregar
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+//Forçar scroll a dalt de tot en carregar
 window.addEventListener('load', () => {
-    let scrollPos = localStorage.getItem('adminScrollPos');
-    if (scrollPos) {
-        window.scrollTo(0, parseInt(scrollPos));
-        localStorage.removeItem('adminScrollPos'); //Netegem
-    }
+
+    window.scrollTo(0, 0);
+
 });
 
 //Funció per canviar la imatge principal quan es fa clic en una miniatura
