@@ -1,1 +1,1 @@
-Projecte final de DAW: TechCorner
+Projecte final de DAW Alex Trigueros León: TechCorner
